@@ -1,0 +1,2863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.20">
+<title>Sirius Web tutorial for EclipseCon 2023</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Sirius Web tutorial for EclipseCon 2023</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Speaker</dt>
+<dd>
+<p>welcome and short overall presentation of:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>what the tutorial is about</p>
+</li>
+<li>
+<p>what are the objectives</p>
+</li>
+<li>
+<p>expected pre-requisites</p>
+</li>
+<li>
+<p>how the tutorial is organized (e.g. 3 hours, with 2 breaks)</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">Attendees</dt>
+<dd>
+<p>listen and can ask for clarification before we proceed.</p>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This 3 hours tutorial on <em>Eclipse Sirius Web</em> has been designed for <a href="https://www.eclipsecon.org/2023">EclipseCon 2023</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also do it by yourself by following the steps below.</p>
+</div>
+<div class="paragraph">
+<p>By the end of this tutorial, you should be able to create your own Sirius Web-based application with your own business domain and diagrams, ready to run and/or deploy on a server.</p>
+</div>
+<div class="paragraph">
+<p>The structure of the tutorial is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>if you have not done so already beforehand, you will need to <a href="#setup">install the required development tools</a> and the sample application we prepared.</p>
+</li>
+<li>
+<p>after a short general presentation of Sirius Web, you will launch the sample application on your machine, and experiment as an <em>end-user</em> the example studio it provides.</p>
+</li>
+<li>
+<p>then you will switch to the <em>studio maker</em> role, and learn how to use Sirius Web to define your own studio directly from your browser.
+This is the main part of the tutorial where we will spend the most time.</p>
+</li>
+<li>
+<p>finally you will see how more advanced features and use cases can be implemented by extending the Java-based backend.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>There will be 2 10-minutes coffee/tea breaks.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setup">Installation/setup (~15 min)</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In this section you will:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install the development tools required to work on Sirius Web on your machine.</p>
+</li>
+<li>
+<p>Import the code from the example Sirius Web-based application we will be using.</p>
+</li>
+<li>
+<p>Get this initial version running locally.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Speaker</dt>
+<dd>
+<p>go through the required setup steps along with the <em>attendees</em>.</p>
+</dd>
+<dt class="hdlist1">Helpers</dt>
+<dd>
+<p>make sure everybody follows along and nobody gets stuck.</p>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>First, download the <em>Spring Tools 4 for Eclipse</em> specially designed for this tutorial.
+Choose the bundle according to your OS:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Windows x86_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.0/sirius-web-tutorial-pack-win-1.0.0.zip">download Windows bundle on Obeo Network</a></p>
+</li>
+<li>
+<p>Linux x86_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.0/sirius-web-tutorial-pack-linux-1.0.0.zip">download Linux bundle on Obeo Network</a></p>
+</li>
+<li>
+<p>macOS x86_64/arm_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.0/sirius-web-tutorial-pack-mac-1.0.0.zip">download macOS bundle on Obeo Network</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It contains an embedded Java Runtime Environment, Maven and all the maven dependencies you will need for this tutorial.</p>
+</div>
+<div class="paragraph">
+<p>Once unzipped, just launch it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Windows: run script <code>run.ps1</code> (run with PowerShell)</p>
+</li>
+<li>
+<p>Linux: run script <code>run.sh</code> (run with your favorite terminal)</p>
+</li>
+<li>
+<p>macOS: run script <code>run.ksh</code> (run with your favorite terminal)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>run</code> shell script allows to configure the <em>Spring Tools 4 for Eclipse</em> to the maven local repository contained in the bundle and then launch it.</p>
+</div>
+<div class="paragraph">
+<p>Once launched, you need to clone or add the git repository (<a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial">Sirius-Web-Tutorial</a>) of the tutorial.</p>
+</div>
+<div class="paragraph">
+<p>The repository contains:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the source code of the sample application we will be using;</p>
+</li>
+<li>
+<p>the complete script of the tutorial itself;</p>
+</li>
+<li>
+<p>snapshots of the expected result at the end of each section in case you get stuck.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_clone_repository">Clone repository</h3>
+<div class="paragraph">
+<p>If you don&#8217;t have already cloned the <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial">Sirius-Web-Tutorial</a> git repository on your machine before, you just have to clone it from your Eclipse environment (If you already have, please go to <a href="#addrepo">Add existing repository</a> section).</p>
+</div>
+<div class="paragraph">
+<p>For that, please go to <em>Window &gt; Perspective &gt; Open Perspective &gt; Other&#8230;&#8203;</em> menu and then select <em>Git</em>.
+From the <em>Git</em> perspective, in the <em>Git Repositories</em> view, click on <em>Clone a Git repository</em> button:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_clone_git_repository_1.png" alt="Clone a Git repository" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, add <code><a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial" class="bare">https://github.com/ObeoNetwork/Sirius-Web-Tutorial</a></code> in the <code>URI</code> field, and click on <em>Next &gt;</em> button:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_clone_git_repository_2.png" alt="Clone a Git repository" width="60%">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, click on <em>Next &gt;</em> button:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_clone_git_repository_3.png" alt="Clone a Git repository" width="60%">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, choose the local folder that will contain the git repository and click on <em>Finish</em> button:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_clone_git_repository_4.png" alt="Clone a Git repository" width="60%">
+</div>
+</div>
+<div class="paragraph">
+<p>Go to <a href="#importandrun">Import &amp; run sample application</a> section for the next step.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="addrepo">Add existing repository</h3>
+<div class="paragraph">
+<p>If you have already cloned the <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial">Sirius-Web-Tutorial</a> git repository on your machine before, you just have to add it to your Eclipse environment.</p>
+</div>
+<div class="paragraph">
+<p>For that, please go to <em>Window &gt; Perspective &gt; Open Perspective &gt; Other&#8230;&#8203;</em> menu and then select <em>Git</em>.
+From the <em>Git</em> perspective, in the <em>Git Repositories</em> view, click on <em>Add an existing local Git repository</em> button:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_add_local_git_repository.png" alt="Add an existing local Git repository" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>Browse on your OS the git repository of the tutorial. Select it and click on <em>Add</em>.
+Now, you should see the git repository (<code>Sirius-Web-Tutorial</code>) on the <em>Git Repositories</em> view.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="importandrun">Import &amp; run sample application</h3>
+<div class="paragraph">
+<p>Now you git repository is visible from your Eclipse environment, import the only project (<code>sirius-web-family-application</code>) contained in the local git repository.
+Just right-click on the <code>Sirius-Web-Tutorial</code> repository in the <em>Git Repositories</em> view, then click on <em>Import Projects&#8230;&#8203;</em> menu.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_git_import_project.png" alt="Import project from Git view">
+</div>
+</div>
+<div class="paragraph">
+<p>Now your project has been imported, please do a "Maven update" on it.
+Just right-click on your project and click on Maven &gt; Update Project&#8230;&#8203; menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_maven_update_1.png" alt="Maven Update" width="60%">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, check the <em>Force Update of Snapshots/Releases</em> and uncheck the <em>Update project configuration from pom.xml</em> checkboxes.
+Click on <em>OK</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_maven_update_2.png" alt="Maven Update" width="60%">
+</div>
+</div>
+<div class="paragraph">
+<p>The last step is to create an <em>Eclipse launch configuration</em> to run our Sirius Web application.
+Go to <em>Run &gt; Run Configurations&#8230;&#8203;</em> menu and then double-click on <em>Spring Boot App</em>.
+Set the name, project, and main type as below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_run_config.png" alt="Run configuration" width="80%">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on <em>Run</em>.
+Your Sirius Web application is ready!</p>
+</div>
+<div class="paragraph">
+<p>You should see the Spring Tools Suite console display the following text (starting with <em>Sirius Web Tutorial</em> ASCII art):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_spring_console_ok.png" alt="Spring Server Console OK">
+</div>
+</div>
+<div class="paragraph">
+<p>Go to <em><a href="http://localhost:8080" class="bare">http://localhost:8080</a></em> on your favorite web browser for the next part of the tutorial!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_troubleshot">Troubleshot</h3>
+<div class="paragraph">
+<p>Please check in the Spring Tools Suite console you don&#8217;t have any error message.
+In particular, please check that your console does not look like this (console text starting with <em>Spring</em> ASCII art):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_spring_console_ko.png" alt="Spring Server Console KO">
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, please do a "Maven update" of your project.
+Just right-click on your project and click on Maven &gt; Update Project&#8230;&#8203; menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_maven_update_1.png" alt="Maven Update" width="60%">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, check the <em>Force Update of Snapshots/Releases</em> and uncheck the <em>Update project configuration from pom.xml</em> checkboxes.
+Click on <em>OK</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/installation_maven_update_2.png" alt="Maven Update" width="60%">
+</div>
+</div>
+<div class="paragraph">
+<p>Then retry to launch your <em>Eclipse launch configuration</em>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sirius-presentation">Presentation performed by the Obeo team (~5 min)</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Speaker</dt>
+<dd>
+<p>give a short presentation of Sirius Web, based on <a href="https://docs.google.com/presentation/d/1Lob5F2C0jzd-_Ln2v-w9AbBjVhKO3o7dAmVgMcqLi6Q/edit?usp=sharing">slides</a></p>
+</dd>
+<dt class="hdlist1">Attendees</dt>
+<dd>
+<p>listen and ask any question at the end.</p>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Sirius Web allows to easily create and deploy graphical studios to the web.</p>
+</div>
+<div class="paragraph">
+<p>It is an open-source <em>low-code</em> platform to define custom web applications supporting your specific visual languages.</p>
+</div>
+<div class="paragraph">
+<p>For more details and contents (videos, online documentation, private instance to experiment all Sirius Web&#8217;s features), please visit the <a href="https://eclipse.dev/sirius/sirius-web.html">Sirius Web website</a>.</p>
+</div>
+<div class="paragraph">
+<p>For more details about the source code, please visit the <a href="https://github.com/eclipse-sirius/sirius-web">Sirius Web github repository</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experiment_as_an_end_user_25_min">Experiment as an end-user (~25 min)</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In this section you will use the studio already configured in the application to create sample data and manipulate it through a diagram representation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Speaker</dt>
+<dd>
+<p>show the expected result, give rough idea of the main steps, explain major new concepts as needed.</p>
+</dd>
+<dt class="hdlist1">Attendees</dt>
+<dd>
+<p>reproduce the expected result. You have the detailed instructions if needed, but are encouraged to try by yourselves and to improvise/explore.</p>
+</dd>
+<dt class="hdlist1">Helpers</dt>
+<dd>
+<p>make sure everybody follows along and nobody gets stuck.</p>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The sample application provided comes with a studio to model data flows between parts of an electronic system.
+Your goal is to create a simple instance of this model and visualize/edit it through the (provided) graphical representation.
+You should obtain something like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_project_previews.png" alt="Project All Views">
+</div>
+</div>
+<div class="paragraph">
+<p>You will need to <em>create a project</em> to store your data, <em>create the model</em>, edit it, and create a <em>diagram</em> on it to visualize and further edit the model.</p>
+</div>
+<div class="sect2">
+<h3 id="_projects_view">Projects View</h3>
+<div class="paragraph">
+<p>The home page of Sirius Web shows the list of project templates (Blank Studio, Flow, Studio, Blank project, &#8230;&#8203;) and the list of already existing projects.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_projects_view.png" alt="Projects View">
+</div>
+</div>
+<div class="paragraph">
+<p>Create a <em>Flow</em> project by clicking on the <em>Flow</em> card.
+You should now see the dedicated project page:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_project_all_views.png" alt="Project All Views">
+</div>
+</div>
+<div class="paragraph">
+<p>Flow contains an example model and a diagram representation based on the already packaged <a href="https://github.com/ObeoNetwork/Flow-Designer/">Flow metamodel</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_explorer_view">Explorer View</h3>
+<div class="paragraph">
+<p>The <em>Explorer</em> view allows to see all the models contained in your project.
+From this view, you can create, edit and delete models, objects and representations.</p>
+</div>
+<div class="sect3">
+<h4 id="_create_an_object">Create an object</h4>
+<div class="paragraph">
+<p>To create an object, just select any object or model, and click on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_menu_flow.png" alt="Explorer view - create object" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the type of model object you want to create and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_dialog_flow.png" alt="Explorer view - create object" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>The new object is visible in the <em>Explorer</em> view.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_result_flow.png" alt="Explorer view - create object" width="40%">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rename_an_object">Rename an object</h4>
+<div class="paragraph">
+<p>To rename an object, select it in the explorer, and click on the menu icon associated (the three vertical dots), then click on the <em>Rename</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_rename_object_menu_flow.png" alt="Explorer view - rename object" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>The selected tree item is now editable, you can set a new value.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_rename_object_edition_flow.png" alt="Explorer view - rename object" width="40%">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delete_an_object">Delete an object</h4>
+<div class="paragraph">
+<p>To delete an object, select it in the explorer, and click on the menu icon associated (the three vertical dots), then click on the <em>Delete</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_delete_object_menu_flow.png" alt="Explorer view - delete object" width="40%">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_details_view">Details View</h3>
+<div class="paragraph">
+<p>The <em>Details</em> view on the right shows all properties of the currently selected object.</p>
+</div>
+<div class="paragraph">
+<p>It is updated from the selection in the <em>Explorer</em> view or the active representation (diagram, form, &#8230;&#8203;).</p>
+</div>
+<div class="paragraph">
+<p>From there, you can edit each property of the selected object.
+Changes are applied immediately.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_representations_area">Representations area</h3>
+<div class="paragraph">
+<p>The representations area shows all open representations (diagrams, forms, &#8230;&#8203;).</p>
+</div>
+<div class="sect3">
+<h4 id="_create_a_representation">Create a representation</h4>
+<div class="paragraph">
+<p>To create a representation, select any object in the <em>Explorer</em> view, and click on the menu icon associated (the three vertical dots), then click on the <em>New representation</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_representation_menu_flow.png" alt="Explorer view - create representation" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the representation type you want to create, set a name and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_representation_dialog_flow.png" alt="Explorer view - create representation" width="40%">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Not all representations are available on every type of element.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The new representation is visible in the <em>Explorer</em> view and automatically open in the representations area.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_representation_result_flow.png" alt="Explorer view - create representation" width="80%">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_object_from_a_diagram">Create object from a diagram</h4>
+<div class="paragraph">
+<p>In this part of the tutorial, we are manipulating a diagram, which is one kind of representation.</p>
+</div>
+<div class="paragraph">
+<p>To create objects inside a diagram, click on the diagram background, or any other object from the diagram.
+A palette will show the available tools from this place.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_diagram_palette_create_tool_flow.png" alt="Diagram - create tool" width="80%">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the type of object you want to create.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_diagram_palette_create_tool_result_flow.png" alt="Diagram - create tool" width="80%">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_delete_object_from_a_diagram">Delete object from a diagram</h4>
+<div class="paragraph">
+<p>To delete an object from the diagram, select it and the choose the <em>Delete</em> tool on the palette (represented by the trashcan icon).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_diagram_palette_delete_tool_flow.png" alt="Diagram - delete tool" width="30%">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rename_object_from_a_diagram">Rename object from a diagram</h4>
+<div class="paragraph">
+<p>To rename an object from the diagram just select it.
+A palette will show the available tools from this place.
+Then you just have to click on the <em>Edit</em> tool (the pen icon).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_diagram_palette_rename_tool_flow.png" alt="Diagram - rename tool" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>The selected object&#8217;s label is now editable, you can set a new value.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_diagram_palette_rename_tool_edition_flow.png" alt="Diagram - rename tool" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>You can also just start typing the new value after the selection of the object, it will move to the editable mode.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bonus_exercise">Bonus Exercise</h3>
+<div class="paragraph">
+<p>If you have finished the steps above before the time and you feel confortable enough, you can try the following bonus exercise (no solution given) or experiment yourself.</p>
+</div>
+<div class="paragraph">
+<p>Exercise: Create a separate project, and try to reproduce the following diagram and model structure:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_bonus_exercise.png" alt="Bonus Exercise">
+</div>
+</div>
+<div class="paragraph">
+<p>Hints:
+- on this screenshot, the <em>Back_Camera</em> element is an instance of the <em>DataSource</em> type;
+- it gets its special icon representing a camera because it&#8217;s name contains the string "camera";
+- see if you can find out how to create edges by yourself.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_collaborative_edition_performed_by_the_obeo_team">Collaborative edition performed by the Obeo team</h3>
+<div class="paragraph">
+<p>The Obeo team will demonstrate the collaborative capacities of Sirius Web.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_diagram_collaborative_edition.gif" alt="Diagram - collaborative edition">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experiment_as_a_studio_maker_defining_a_domain_25_min">Experiment as a studio maker: defining a domain (~25 min)</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For the rest of the tutorial you will switch roles from <em>end-user</em> of an already existing studio to <em>studio maker</em> to create your own.
+The first step is to tell Sirius Web about the structure of the business domain for your studio, which is the goal of this section.
+We&#8217;ll see how to configure graphical representations (e.g. diagrams) specifically designed for this domain in the next one.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Speaker</dt>
+<dd>
+<p>show the expected result, give rough idea of the main steps, explain major new concepts as needed.</p>
+</dd>
+<dt class="hdlist1">Attendees</dt>
+<dd>
+<p>reproduce the expected result. You have the detailed instructions if needed, but are encouraged to try by yourselves and to improvise/explore.</p>
+</dd>
+<dt class="hdlist1">Helpers</dt>
+<dd>
+<p>make sure everybody follows along and nobody gets stuck.</p>
+</dd>
+</dl>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In Sirius Web, one of the key features is the ability to define your own domain and the associated representations (e.g. diagrams) to view and edit it.
+Together, the domain and accompanying representations are called a <em>studio</em>.</p>
+</div>
+<div class="paragraph">
+<p>As a studio maker you will create your studio definition entirely through the web browser, using the same UI as you used in the previous part of the tutorial.</p>
+</div>
+<div class="paragraph">
+<p>Once your studio has been defined, it can be used by other users, who can:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>create concrete instances of the concepts described in the new domains;</p>
+</li>
+<li>
+<p>visualize and manipulate these instances through the representations defined in the studio.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In this part of the tutorial, as a studio maker, we will create a new studio, and then use is as an end-user.</p>
+</div>
+<div class="paragraph">
+<p>In Sirius Web, a <em>Domain</em> is composed with <em>Entities</em> and <em>Relations</em> objects.
+An <em>Entity</em> may have <em>Attributes</em>, <em>Entities</em> and <em>Relations</em>.
+A <em>Relation</em> is a connection between two <em>Entities</em>.
+An <em>Attribute</em> is either a <em>Text</em>, <em>Boolean</em> or a <em>Number</em>.</p>
+</div>
+<div class="paragraph">
+<p>In this section, your goal is to create a very simple <em>Family</em> domain with the following structure:</p>
+</div>
+<div class="paragraph">
+<p>image::images/studio_maker_family_domain_step1_final.png</p>
+</div>
+<div class="paragraph">
+<p>To Sirius, a domain is a model (almost) like any other, so you will be using the same mechanisms as above when creating the Flow example.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you do not want to specify yourself a new domain, you can upload the files we prepared:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go back to the main page with the projects list (you can click on the Sirius logo in the top-left).</p>
+</li>
+<li>
+<p>Click on the "Upload project" card.</p>
+</li>
+<li>
+<p>Click on the "Click here to select a file" link, then select the <code>solutions/Family-Studio-Step1.zip</code> from the tutorial sources and then click on "UPLOAD".</p>
+</li>
+<li>
+<p>You will be redirected to a newly created <em>Family Studio</em> project with the domain already defined.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>First, from the home page, click on the <em>Blank Studio</em> template.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Make sure to create a <em>Blank Studio</em> and not a plain <em>Blank Project</em>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Then, create a <em>Domain</em> model, in the <em>Create a new model</em> section.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_new_domain.png" alt="Studio Maker - new domain">
+</div>
+</div>
+<div class="paragraph">
+<p>It creates a new document named <em>Domain</em> containing an object named <em>Domain</em>.
+It will initialy have a randomly chosen name.
+Using the <em>Details</em> view, rename this object from <em>Domain</em> to <em>tutorial</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_rename.png" alt="Studio Maker - rename domain">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, create a <em>Domain</em> diagram on this <em>tutorial</em> domain object.
+While not strictly necessay, it will make it easier to create and modify our domain specific language than using just the <em>Explorer</em> and <em>Details</em> views.
+To create this diagram, select the <em>tutorial</em> object in the <em>Explorer</em> view, and click on the menu icon associated (the three vertical dots), then click on the <em>New representation</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_create_domain_diagram_menu.png" alt="Studio Maker - create domain diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the representation type you want to create (<em>Domain</em>), set a name and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_create_domain_diagram_dialog.png" alt="Studio Maker - create domain diagram" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>The new representation is visible in the <em>Explorer</em> view and automatically open in the representations area.
+It will be empty initially, as our new domain does not currently define any concept.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_create_domain_diagram_result.png" alt="Studio Maker - create domain diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s create the concepts we will manipulate later.</p>
+</div>
+<div class="paragraph">
+<p>From the diagram background, create an <em>Entity</em> named <em>Family</em> and another named <em>Person</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_create_entity_tool.png" alt="Studio Maker - create entity">
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s link our two <em>Entities</em> with a <em>Relation</em>.</p>
+</div>
+<div class="paragraph">
+<p>From the <em>Family</em> object, click on the <em>Connector</em> tool (the first one in the <em>Palette</em>), and then click on the <em>Person</em> object.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_create_relation_tool.png" alt="Studio Maker - create relation">
+</div>
+</div>
+<div class="paragraph">
+<p>Three options are displayed on the screen, <em>Relation</em>, <em>Containment</em> and <em>Supertype</em>.
+Select <em>Containment</em> option. Indeed, a <em>Family</em> will contains a set of <em>Person</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_create_relation_tool_target.png" alt="Studio Maker - create relation">
+</div>
+</div>
+<div class="paragraph">
+<p>You should now see a <em>Relation</em> between the <em>Entities</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_create_relation_result.png" alt="Studio Maker - create relation">
+</div>
+</div>
+<div class="paragraph">
+<p>In the <em>Details</em> view, just rename the link form <em>persons</em> to <em>members</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_rename_relation.png" alt="Studio Maker - rename relation">
+</div>
+</div>
+<div class="paragraph">
+<p>Almost done!
+We finish this first specification part by adding a <em>name</em> attribute to <em>Family</em> and <em>Person</em>.</p>
+</div>
+<div class="paragraph">
+<p>In the diagram, click on the <em>Family</em> object and select the <em>Text</em> attribute tool.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_create_attribute_tool.png" alt="Studio Maker - create attribute">
+</div>
+</div>
+<div class="paragraph">
+<p>Set its name to <em>name</em>.
+Do the same for <em>Person</em>.
+You should now have a domain looking like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_family_domain_step1_final.png" alt="Studio Maker - step 1 - final">
+</div>
+</div>
+<div class="paragraph">
+<p>Just one last thing!
+You can go back to the home page (through the Sirius icon on the top left corner) and then rename your project from <em>Blank Studio</em> to <em>Family-Studio</em>.
+Click on the menu icon associated (the three horizontal dots) to <em>Blank Studio</em>, then click on the <em>Rename</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_rename_project.png" alt="Studio Maker - rename project">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_the_studio">Test the studio</h3>
+<div class="paragraph">
+<p>To test our studio, we need to create a new project with <em>instances</em> of the concepts we defined.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you do not want to create the domain instance yourself, you can upload the files we prepared.
+. Go back to the main page with the projects list (you can click on the Sirius logo in the top-left).
+. Click on the "Upload project" card.
+. Click on the "Click here to select a file" link, then select the <code>Family-Instance-Step1.zip</code> from the tutorial sources and then click on "UPLOAD".
+. You will be redirected to a newly created <em>Family Instance</em> project with the domain already defined.</p>
+</div>
+<div class="paragraph">
+<p>Note that this requires that the corresponding domain has been correctly defined as above.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>From the home page, click on the <em>Blank project</em> template.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_projects_create_blank_project.png" alt="End-user - create new project">
+</div>
+</div>
+<div class="paragraph">
+<p>Name this new project <em>Family-Instance</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_projects_create_blank_project_name.png" alt="End-user - create new project">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, create an <em>Others&#8230;&#8203;</em> model, in the <em>Create a new model</em> section.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_new_others.png" alt="End-user - new document">
+</div>
+</div>
+<div class="paragraph">
+<p>From this new <em>Others&#8230;&#8203;</em> model, click on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_menu_family.png" alt="End-user - new family" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Make sure the <em>Domain</em> selected is the one we defined above, <code>domain://tutorial</code>.
+Select the type of model object you want to create (here a <em>Family</em>) and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_dialog_family.png" alt="End-user - new family" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Name the <em>Family</em> (from the <em>Details</em> view or with the <em>Rename</em> menu item).
+Then, create one or two <em>Person</em> and rename them.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_menu_person.png" alt="End-user - new person" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the type of model object you want to create (here a <em>Person</em>) and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_dialog_person.png" alt="End-user - new person" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Your instance model should look like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_instance_step1_final.png" alt="End-user - step 1 - final" width="40%">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_coffeetea_break_10_min">COFFEE/TEA BREAK! (~10 min)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experiment_as_a_studio_maker_defining_a_diagram_to_visualize_our_new_domain_20_min">Experiment as a studio maker: defining a diagram to visualize our new domain (~20 min)</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We now have defined our custom domain, however simple (the basic structure of a Family).
+We can create and edit concrete <em>instances</em> (the concrete family), but currently only through the <em>Explorer</em> view (the instance&#8217;s structure) and <em>Details</em> (the properties of each specific element).</p>
+</div>
+<div class="paragraph">
+<p>The power of Sirius Web is that for each domain you (as a studio maker) can define custom <em>representations</em> (typically diagrams or forms, but it can be almost anything) adapted to the domain for end-users.</p>
+</div>
+<div class="paragraph">
+<p>In this section you will create a simple diagram representation for families.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now we have a domain, we want to be able to manipulate it graphically.
+In the <em>Studio</em>, this part is called <em>View</em>.
+A <em>View</em> allows to define the description of representations (diagrams, forms, &#8230;&#8203;).
+A <em>Diagram Description</em> contains a set of <em>Node Descriptions</em> and <em>Edges Descriptions</em>.
+A <em>Node Description</em> contains the information needed to display an <em>Entity</em> on a diagram.
+An <em>Edge Description</em> contains the information needed to display a <em>Relation</em> (or an <em>Entity</em>) on a diagram.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you do not want to specify yourself a new view, please upload in Sirius Web the projects we already prepared (see the previous sections for how to upload a project from a zip).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Delete the existing <em>Family-Instance</em> and <em>Family-Studio</em> beforehand to avoid conflicts.</p>
+</li>
+<li>
+<p>Upload the provided <code>solutions/Family-Studio-Step2.zip</code> file, which contains the studio definition with both the domain and simple diagram definition.</p>
+</li>
+<li>
+<p>Upload the provided <code>solutions/Family-Instance-Step2.zip</code> file, which contains an example family and diagram.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>First, create a <em>View</em> model, in the <em>Create a new model</em> section.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_new_view.png" alt="Studio Maker - new view">
+</div>
+</div>
+<div class="paragraph">
+<p>It creates a new document named <em>View</em> containing a view named <em>View</em>, and a diagram description named <em>New Diagram Description</em> and a <em>Color Palette</em> with some predefined colors.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_new_view_2.png" alt="Studio Maker - new view">
+</div>
+</div>
+<div class="paragraph">
+<p>From the <em>Details</em> view:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Rename this object from <em>New Diagram Description</em> to <em>Family Diagram Description</em>.</p>
+</li>
+<li>
+<p>Set the domain type (the type of object on which we want to create this type of diagram) to <code>tutorial::Family</code>.</p>
+</li>
+<li>
+<p>Set the <em>Title Expression</em> to <code>Family Representation</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_diagram_description_set_properties.png" alt="Studio Maker - diagram description - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>This is enough to be able to create diagrams on <em>Family</em> instances, but they would be blank.
+Let&#8217;s tell Sirius Web what kind of elements (nodes) to display on these diagrams.</p>
+</div>
+<div class="paragraph">
+<p>From the <em>Family Diagram Description</em>, create a new <em>Node Description</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_create_node_description_menu.png" alt="Studio Maker - diagram description - create node description" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Node Description</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_create_node_description_dialog.png" alt="Studio Maker - diagram description - create node description" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>A new <em>Node Description</em> is visible in the <em>Explorer</em> view.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_description.png" alt="Studio Maker - node description">
+</div>
+</div>
+<div class="paragraph">
+<p>After selecting the <em>Node Description</em> in the <em>Explorer</em> view, let&#8217;s change its properties in the <em>Details</em> view:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set the name to <em>Person Node</em></p>
+</li>
+<li>
+<p>Set the domain type to <code>tutorial::Person</code>: each of these nodes will represent an instance of the <em>Person</em> type.</p>
+</li>
+<li>
+<p>Set the semantic candidates expression to <code>aql:self.members</code>: we want to get one node for each member of the family.</p>
+</li>
+<li>
+<p>Set the label expression to <code>aql:self.name</code>: the node will display the name of the <em>Person</em> it represents.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+if you want more details about the meaning of all elements and properties of the <em>Studio</em>, please go to <a href="https://docs.obeostudio.com/" class="bare">https://docs.obeostudio.com/</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+if you want more details about AQL, the model query language, please go to <a href="https://eclipse.dev/acceleo/documentation/" class="bare">https://eclipse.dev/acceleo/documentation/</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_description_set_properties.png" alt="Studio Maker - node description - set properties" width="20%">
+</div>
+</div>
+<div class="paragraph">
+<p>Inside this <em>Color Palette</em> (available int he <em>Explorer</em> just below the <em>View</em> element), let&#8217;s create 3 custom colors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>person_background color</em> with value <code>#f7e6f0</code></p>
+</li>
+<li>
+<p><em>person_border_color</em> with value <code>#242055</code></p>
+</li>
+<li>
+<p><em>person_label_color</em> with value <code>#242055</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>From the <em>Color Palette</em> object, create a new <em>Color</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_color_palette_create_color_menu.png" alt="Studio Maker - view - create color" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Fixed Color</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_color_palette_create_color_dialog.png" alt="Studio Maker - view - create color" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>The colors have been created.
+Let&#8217;s use those colors for the <em>Person Node</em> object.
+In the <em>Explorer</em> view, click on the <em>RectangularNodeStyleDescription</em> under the <em>Person Node</em> object.
+Set its properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Width Expression</em> to <code>100</code></p>
+</li>
+<li>
+<p><em>Width Expression</em> to <code>70</code></p>
+</li>
+<li>
+<p><em>Label Color</em> to <code>person_label_color</code></p>
+</li>
+<li>
+<p><em>Color</em> to <code>person_background_color</code></p>
+</li>
+<li>
+<p><em>Border Color</em> to <code>person_border_color</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_description_set_style_properties.png" alt="Studio Maker - node description style - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, let&#8217;s create a tool allowing to create a <em>Person</em> inside the diagram.
+For this we need to setup the palette of tools that will be displayed when the user clicks on the diagram&#8217;s background.</p>
+</div>
+<div class="paragraph">
+<p>From the <em>Family Diagram Description</em> object, create a new <em>Palette</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_diagram_description_create_palette_menu.png" alt="Studio Maker - diagram description - create palette" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Palette</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_diagram_description_create_palette_dialog.png" alt="Studio Maker - diagram description - create palette" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>From the the <em>DiagramPalette</em> object, create a new <em>Node Tool</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_diagram_palette_create_node_tool_menu.png" alt="Studio Maker - diagram palette - create node tool" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Node Tool</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_diagram_palette_create_node_tool_dialog.png" alt="Studio Maker - diagram palette - create node tool" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>From the <em>Details</em> view, rename this <em>Node Tool</em> to <em>Person</em>.</p>
+</div>
+<div class="paragraph">
+<p>From the the <em>Node Tool</em> object, create a new <em>Create Instance</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_node_tool_create_instance_menu.png" alt="Studio Maker - node tool - create instance" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Create Instance</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_node_tool_create_instance_dialog.png" alt="Studio Maker - node tool - create instance" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>From the <em>Details</em> view, set the properties of the <em>Create Instance</em> object:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Type Name</em> to <code>tutorial::Person</code></p>
+</li>
+<li>
+<p><em>Reference Name</em> to <code>members</code></p>
+</li>
+<li>
+<p><em>Variable Name</em> to <code>newPerson</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_tool_create_instance_set_properties.png" alt="Studio Maker - create instance - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>At this stage, our creation tool should work.
+But would it be better if a new <em>Person</em> created from this tool was created with a default name?
+Let&#8217;s do that.</p>
+</div>
+<div class="paragraph">
+<p>From the the <em>Create Instance</em> object, create a new <em>Change Context</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_node_tool_change_context_menu.png" alt="Studio Maker - node tool - change context" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Change Context</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_node_tool_change_context_dialog.png" alt="Studio Maker - node tool - change context" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>From the <em>Details</em> view, set the properties of the <em>Change Context</em> object:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Expression</em> to <code>aql:newPerson</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_tool_change_context_set_properties.png" alt="Studio Maker - change context - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>From the the <em>Change Context</em> object, create a new <em>Set Value</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_node_tool_set_value_menu.png" alt="Studio Maker - node tool - set value" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Set Value</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_node_tool_set_value_dialog.png" alt="Studio Maker - node tool - set value" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>From the <em>Details</em> view, set the properties of the <em>Set Value</em> object:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Feature Name</em> to <code>name</code></p>
+</li>
+<li>
+<p><em>Value Expression</em> to <code>new Person</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_tool_set_value_set_properties.png" alt="Studio Maker - set value - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>Now test this second part as an end-user!</p>
+</div>
+<div class="sect2">
+<h3 id="_test_the_studio_2">Test the studio</h3>
+<div class="paragraph">
+<p>From the home page, click on the <em>Family-Instance</em> project.</p>
+</div>
+<div class="paragraph">
+<p>From the <em>Explorer</em> view, select your <em>Family</em> object and create a new <em>Family Diagram Description</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New representation</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_create_representation_menu.png" alt="End-user - create representation" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the representation type you want to create (a <em>Family Diagram Description</em>), set a name and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_create_representation_dialog.png" alt="End-user - create representation" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>The new representation is visible in the <em>Explorer</em> view and automatically open in the representations area.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_create_representation_result.png" alt="End-user - create representation">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on the background of the diagram, then click on the <em>Person</em> tool.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_diagram_person_tool.png" alt="End-user - diagram - person tool">
+</div>
+</div>
+<div class="paragraph">
+<p>There you go! The new <em>Person</em> is visible in the diagram and the <em>Explorer</em> view.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_instance_step2_final.png" alt="End-user - diagram - person tool">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bonus_exercise_2">Bonus Exercise</h3>
+<div class="paragraph">
+<p>If you have finished the steps above before the time and you feel confortable enough, you can try the following bonus exercice (no solution given) or experiment yourself:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Update the diagram definition to display the full names of the persons (e.g. "Gomez Adams" instead of just "Gomez"). Hint: The reference documentation for AQL, which is used for computed expressions, is <a href="https://eclipse.dev/acceleo/documentation/aql.html">here</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experiment_as_a_studio_maker_add_relations_and_display_them_on_the_diagram_10_min">Experiment as a studio maker: add relations and display them on the diagram (~10 min)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this third part of the experiment, we will add a new <em>Relation</em> named <em>children</em> to our <em>Family</em> domain and also display it graphically in the associated <em>View</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you don&#8217;t want to specify yourself this part, please upload in Sirius Web the projects we already prepared (see the previous sections for how to upload a project from a zip).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Delete the existing <em>Family-Instance</em> and <em>Family-Studio</em> beforehand to avoid conflicts.</p>
+</li>
+<li>
+<p>Upload the provided <code>Family-Studio-Step3.zip</code> file, which contains the studio definition with both the domain and simple diagram definition.</p>
+</li>
+<li>
+<p>Upload the provided <code>Family-Instance-Step3.zip</code> file, which contains an example family and diagram.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>From the home page, click on the <em>Family-Studio</em> project.
+In the <em>Family-Studio</em> project, open the <em>Domain</em> diagram.
+Then in the diagram, click on the <em>Person</em> object, select the <em>Connector</em> tool (the first one).
+Click on the <em>Person</em> again (indeed the <em>children</em> will start from a <em>Person</em> an will target others <em>Persons</em>) and select <em>Relation</em> (the first choice in the list).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_person_create_relation_children.png" alt="Studio Maker - domain - create relation">
+</div>
+</div>
+<div class="paragraph">
+<p>Select this new <em>Relation</em> to <em>children</em> and set its properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Name</em> to <code>children</code></p>
+</li>
+<li>
+<p><em>Optional</em> to <code>true</code></p>
+</li>
+<li>
+<p><em>Many</em> to <code>true</code></p>
+</li>
+<li>
+<p><em>Containment</em> to <code>false</code></p>
+</li>
+<li>
+<p><em>Target Type</em> to <code>Entity Person</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_person_create_relation_children_set_properties.png" alt="Studio Maker - domain relation - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, in the <em>View</em> model, from the <em>Family Diagram Description</em> object, create an <em>Edge Description</em> and set its properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Name</em> to <code>Children Edge</code></p>
+</li>
+<li>
+<p><em>Domain Type</em> to <code>tutorial::Person</code></p>
+</li>
+<li>
+<p><em>Semantic Candidates Expression</em> to empty value</p>
+</li>
+<li>
+<p><em>Precondition Expression</em> to empty value</p>
+</li>
+<li>
+<p><em>Synchronization Policy</em> to <code>SYNCHRONIZED</code></p>
+</li>
+<li>
+<p><em>Label Expression</em> to empty value</p>
+</li>
+<li>
+<p><em>Begin Label Expression</em> to empty value</p>
+</li>
+<li>
+<p><em>End Label Expression</em> to empty value</p>
+</li>
+<li>
+<p><em>Is Domain Based Edge</em> to <code>false</code></p>
+</li>
+<li>
+<p><em>Source Node Descriptions</em> to <code>Person Node</code></p>
+</li>
+<li>
+<p><em>Target Node Descriptions</em> to <code>Person Node</code></p>
+</li>
+<li>
+<p><em>Source Node Expression</em> to <code>aql:self</code></p>
+</li>
+<li>
+<p><em>Target Node Expression</em> to <code>aql:self.children</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_create_edge_set_properties.png" alt="Studio Maker - view edge - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>You can also set the color of the edge by clicking on the <em>EdgeStyle</em> object inside the <em>Children Edge</em> object.
+Then change the <em>Color</em> properties in the <em>Details</em> view to <code>person_border_color</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_edge_style_set_properties.png" alt="Studio Maker - view edge style - set properties">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_the_studio_3">Test the studio</h3>
+<div class="paragraph">
+<p>From the home page, click on the <em>Family-Instance</em> project.</p>
+</div>
+<div class="paragraph">
+<p>From the <em>Explorer</em> view, open your <em>Family Representation</em> diagram.</p>
+</div>
+<div class="paragraph">
+<p>Then click on a <em>Person</em> in the diagram.
+In the <em>Details</em> view you should see a new property named <em>Children</em>.
+From this property, set the <em>Persons</em> you want as children of the selected <em>Person</em>.</p>
+</div>
+<div class="paragraph">
+<p>You should see your diagram updated instantaneously with new edges:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_instance_step3_final.png" alt="End-user - diagram - edges">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experiment_as_a_studio_maker_update_existing_domain_view_10_min">Experiment as a studio maker: update existing domain &amp; view (~10 min)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this fourth part of the experiment, we will create sub-types to <em>Person</em> (<em>StarWarsFan</em> and <em>StarTrekFan</em>), and add a new <em>Conditional Styles</em> to our <em>Person Node</em> in the <em>View</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you don&#8217;t want to specify yourself this part, please upload in Sirius Web the projects we already prepared (see the previous sections for how to upload a project from a zip).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Delete the existing <em>Family-Instance</em> and <em>Family-Studio</em> beforehand to avoid conflicts.</p>
+</li>
+<li>
+<p>Upload the provided <code>Family-Studio-Step4.zip</code> file, which contains the studio definition with both the domain and simple diagram definition.</p>
+</li>
+<li>
+<p>Upload the provided <code>Family-Instance-Step4.zip</code> file, which contains an example family and diagram.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>From the home page, click on the <em>Family-Studio</em> project.
+In the <em>Family-Studio</em> project, open the <em>Domain</em> diagram.
+Then in the diagram, click on the diagram background, select the <em>Entity</em> tool (the first one).
+Name this <em>Entity</em>: <em>StarTrekFan</em> and do the same for <em>StarWarsFan</em>.</p>
+</div>
+<div class="paragraph">
+<p>Select the <em>StarTrekFan</em> <em>Entity</em> and from the <em>Details</em> view, select <em>Person</em> as <em>Super Types</em>.
+Do the same for <em>StarWarsFan</em>.
+Finally, make <em>Person</em> abstract from the <em>Details</em> view.</p>
+</div>
+<div class="paragraph">
+<p>Your domain should look like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_domain_stars_people.png" alt="Studio Maker - domain - star wars &amp; star trek fans">
+</div>
+</div>
+<div class="paragraph">
+<p>Lets' add some <em>Conditional styles</em> to our <em>View</em>.</p>
+</div>
+<div class="paragraph">
+<p>From the the <em>Person Node</em> object, create a new <em>Conditional Node Style</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_conditional_style_menu.png" alt="Studio Maker - node - conditional style" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Conditional Node Style</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_conditional_style_dialog.png" alt="Studio Maker - node - conditional style" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select this new <em>Conditional Node Style</em> and set its properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Condition</em> to <code>aql:self.oclIsKindOf(tutorial::StarTrekFan)</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_conditional_style_set_properties.png" alt="Studio Maker - node - conditional style - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>From the the <em>Conditional Node Style</em> object, create a new <em>Image Node Style Description</em> by clicking on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_conditional_style_image_node_style_menu.png" alt="Studio Maker - node - conditional style - image node style" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the <em>Image Node Style Description</em> object type and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_conditional_style_image_node_style_dialog.png" alt="Studio Maker - node - conditional style - image node style" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select this new <em>Image Node Style Description</em> and set its properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Shape</em> to <code>star-trek-1</code> or <code>star-trek-2</code></p>
+</li>
+<li>
+<p><em>Width Expression</em> to <code>70</code></p>
+</li>
+<li>
+<p><em>Height Expression</em> to <code>70</code></p>
+</li>
+<li>
+<p><em>Show Icon</em> to <code>false</code></p>
+</li>
+<li>
+<p><em>Label Color</em> to <code>person_label_color</code></p>
+</li>
+<li>
+<p><em>Border Radius</em> to <code>3</code></p>
+</li>
+<li>
+<p><em>Border Size</em> to <code>0</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_view_person_node_conditional_style_image_node_style_set_properties.png" alt="Studio Maker - node - conditional style - image node style - set properties">
+</div>
+</div>
+<div class="paragraph">
+<p>Now add a new <em>Conditional Node Style</em> but this time for <em>StarWarsFan</em>.</p>
+</div>
+<div class="paragraph">
+<p>Finally, update the <em>DiagramPalette</em>: add new creation tools for <em>StarTrekFan</em> and <em>StarWarsFan</em>.
+It is the same than the existing creation tool for <em>Person</em> but with adapted values.
+After that, you can remove the <em>Person</em> creation tool cause it is now useless.
+Indeed, <em>Person</em> is now an abstract <em>Entity</em> and cannot be instantiated anymore.</p>
+</div>
+<div class="paragraph">
+<p>At the end, your <em>View</em> should look like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_family_domain_step4_final.png" alt="Studio Maker - step4 - final" width="40%">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_the_studio_4">Test the studio</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+The evolution we have made to our domain makes the existing model in <em>Family-Instance</em> obsolete.
+You must delete the <em>Family-Instance</em> project from the home page.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>From the home page, click on the <em>Blank project</em> template.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_projects_create_blank_project.png" alt="End-user - create new project">
+</div>
+</div>
+<div class="paragraph">
+<p>Name this new project <em>Family-Instance</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_projects_create_blank_project_name.png" alt="End-user - create new project">
+</div>
+</div>
+<div class="paragraph">
+<p>Then, create an <em>Others&#8230;&#8203;</em> model, in the <em>Create a new model</em> section.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_new_others.png" alt="End-user - new document">
+</div>
+</div>
+<div class="paragraph">
+<p>From this new <em>Others&#8230;&#8203;</em> model, click on the menu icon associated (the three vertical dots), then click on the <em>New object</em> menu item.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_menu_family.png" alt="End-user - new family" width="30%">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the type of model object you want to create (here a <em>Family</em>) and click on the <em>CREATE</em> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_object_dialog_family.png" alt="End-user - new family" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Name the <em>Family</em> (from the <em>Details</em> view or with the <em>Rename</em> menu item).</p>
+</div>
+<div class="paragraph">
+<p>From the <em>Explorer</em> view, create <em>Family Representation</em> diagram from the <em>Family</em> object.</p>
+</div>
+<div class="paragraph">
+<p>Click on the background of the diagram, and select the <em>StarTrekFan</em> tool.
+Do the same for the <em>StarWarsFan</em> tool.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_explorer_view_create_startrekfan.png" alt="End-user - new star trek fan">
+</div>
+</div>
+<div class="paragraph">
+<p>Then click on a <em>Person</em> (a <em>StarTrekFan</em> or a <em>StarWarsFan</em>) in the diagram.
+In the <em>Details</em> view you should see a new property named <em>Children</em>.
+From this property, set the <em>Persons</em> you want as children of the selected <em>Person</em>.</p>
+</div>
+<div class="paragraph">
+<p>You should see your diagram updated instantaneously with new edges:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_instance_step4_final.png" alt="End-user - step4 - final">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_coffeetea_break_10_min_2">COFFEE/TEA BREAK! (~10 min)</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sirius_web_forms_demonstration_performed_by_the_obeo_team_5_min">Sirius Web forms demonstration performed by the Obeo team (~5 min)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Diagrams are not the only kind of representation provided by default by Sirius Web.
+Forms are also a great tool to display data to the users.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+If you want to benefit from this part of the tutorial, please upload in Sirius Web the projects <em>solutions/Family-Studio-Step5.zip</em> and then <em>solutions/Family-Instance-Step5.zip</em>.
+Do not forget to delete existing projects from previous steps before.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of what can be done from the studio maker side:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_family_domain_step5_final.png" alt="Studio Maker - step5 - final">
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the result from the end-user side:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_family_instance_step5_final.png" alt="End-user - step5 - final">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experiment_as_studio_developer_35_min">Experiment as studio developer (~35 min)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To develop more advanced features for your studios, which can not (yet) be implemented directly through the web UI, you can also do a lot of things programmatically (Java services, project templates, custom validation rules, representations descriptions&#8230;&#8203;).</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s implement some of them!</p>
+</div>
+<div class="sect2">
+<h3 id="_java_services_10_min">Java Services (~10 min)</h3>
+<div class="paragraph">
+<p>So far in the studio definition we have used AQL expressions to navigate inside our models and to compute some values (for example labels).
+Sometimes you need to perform more complex computations that what can be (easily) expressed in AQL.
+Fortunately, Sirius Web makes it pretty easy to call into custom Java code directly from AQL using what&#8217;s called <em>Java Services</em>.</p>
+</div>
+<div class="paragraph">
+<p>The actual Java services:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+public class FamilyServices {
+
+    // aql:self.name + ' ' + self.eContainer().name
+    public String fullName(EObject person) {
+        if (this.isInstance(person, "tutorial", "Person")) {
+            EObject parent = person.eContainer();
+            if (this.isInstance(parent, "tutorial", "Family")) {
+                String familyName = (String) this.getAttribute(parent, "name");
+                String ownName = (String) this.getAttribute(person, "name");
+                return ownName + " " + familyName;
+            }
+        }
+        return "";
+    }
+
+    private Object getAttribute(EObject object, String attributeName) {
+        return object.eGet(object.eClass().getEStructuralFeature(attributeName));
+    }
+
+    private boolean isInstance(EObject object, String domain, String typeName) {
+        if (object != null) {
+            EClass klass = object.eClass();
+            return klass.getName().equals(typeName) &amp;&amp; klass.getEPackage().getName().equals(domain);
+        } else {
+            return false;
+        }
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Simpler version, but with no checks at all:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class FamilyServices {
+    // aql:self.name + ' ' + self.eContainer().name
+    public String fullName(EObject person) {
+        return this.getName(person.eContainer()) + " " + this.getName(person);
+    }
+
+    private String getName(EObject object) {
+        return (String) object.eGet(object.eClass().getEStructuralFeature("name"));
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We also need to tell Sirius Web about this new class, but is should only be available in our Family studio.
+This is done by registering an <code>IJavaServiceProvider</code> Spring bean:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.util.List;
+
+import org.eclipse.sirius.components.view.View;
+import org.eclipse.sirius.components.view.diagram.DiagramDescription;
+import org.eclipse.sirius.components.view.emf.IJavaServiceProvider;
+import org.eclipse.sirius.web.sample.services.FamilyServices;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FamilyServicesProvider implements IJavaServiceProvider {
+    @Override
+    public List&lt;Class&lt;?&gt;&gt; getServiceClasses(View view) {
+        boolean isTestView = view.getDescriptions().stream()
+                .filter(DiagramDescription.class::isInstance)
+                .map(DiagramDescription.class::cast)
+                .anyMatch(diagramDescription -&gt; diagramDescription.getDomainType().equals("tutorial::Family"));
+        if (isTestView) {
+            return List.of(FamilyServices.class);
+        }
+        return List.of();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once this is done and the backend has restarted, we can now use our new service method (<code>fullName</code>) from AQL expressions in our Family Studio.
+In the <em>Family Diagram Description</em>, change the <em>Label Expression</em> for <em>Person Node</em> to: <code>aql:self.fullName()</code>.
+Re-open the diagram.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_project_templates_10_min">Project Templates (~10 min)</h3>
+<div class="paragraph">
+<p>From the homepage of Sirius Web, you can see some project templates.
+In Sirius Web, a template is a project initializer and accelerator.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_templates.png" alt="Studio Developer - templates">
+</div>
+</div>
+<div class="paragraph">
+<p>Please checkout the tag <code>FAMILY_TEMPLATE</code> from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.</p>
+</div>
+<div class="paragraph">
+<p>There are two interfaces to implement to provide a new template in Sirius Web:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>an <code>IProjectTemplateProvider</code></p>
+</li>
+<li>
+<p>an <code>IProjectTemplateInitializer</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the <code>IProjectTemplateProvider</code>, the code look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import java.util.List;
+
+import org.eclipse.sirius.web.services.api.projects.IProjectTemplateProvider;
+import org.eclipse.sirius.web.services.api.projects.ProjectTemplate;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FamilyProjectTemplatesProvider implements IProjectTemplateProvider {
+
+    public static final String FAMILY_TEMPLATE_ID = "family-template";
+
+    @Override
+    public List&lt;ProjectTemplate&gt; getProjectTemplates() {
+        var flowTemplate = ProjectTemplate.newProjectTemplate(FAMILY_TEMPLATE_ID)
+                .label("Family")
+                .imageURL("/images/Family-Template.svg")
+                .natures(List.of())
+                .build();
+        return List.of(flowTemplate);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the <code>IProjectTemplateInitializer</code>, the code look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import org.eclipse.sirius.web.services.api.projects.IProjectTemplateInitializer;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FamilyProjectTemplatesInitializer implements IProjectTemplateInitializer {
+
+    @Override
+    public boolean canHandle(String templateId) {
+        return FamilyProjectTemplatesProvider.FAMILY_TEMPLATE_ID.equals(templateId); //<b class="conum">(1)</b>
+    }
+
+    @Override
+    public Optional&lt;RepresentationMetadata&gt; handle(String templateId, IEditingContext editingContext) {
+        if (FamilyProjectTemplatesProvider.FAMILY_TEMPLATE_ID.equals(templateId)) {
+            return this.initializeFamilyProject(editingContext); //<b class="conum">(2)</b>
+        }
+        return Optional.empty();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>this template initializer only applies when the <code>FamilyProjectTemplatesProvider</code> is called.</p>
+</li>
+<li>
+<p>the content of <code>initializeFamilyProject</code> is described below.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">private Optional&lt;RepresentationMetadata&gt; initializeFamilyProject(IEditingContext editingContext) {
+
+    Optional&lt;RepresentationMetadata&gt; result = Optional.empty();
+    Optional&lt;AdapterFactoryEditingDomain&gt; optionalEditingDomain = Optional.of(editingContext)
+            .filter(EditingContext.class::isInstance)
+            .map(EditingContext.class::cast)
+            .map(EditingContext::getDomain);
+    Optional&lt;UUID&gt; editingContextUUID = new IDParser().parse(editingContext.getId());
+    if (optionalEditingDomain.isPresent() &amp;&amp; editingContextUUID.isPresent()) {
+        AdapterFactoryEditingDomain adapterFactoryEditingDomain = optionalEditingDomain.get();
+        ResourceSet resourceSet = adapterFactoryEditingDomain.getResourceSet();
+
+        EPackage familyEPackage = this.getTutorialEPackage(editingContext.getId());
+
+        //<b class="conum">(1)</b>
+        var optionalDocumentEntity = this.projectRepository.findById(editingContextUUID.get()).map(projectEntity -&gt; {
+            DocumentEntity documentEntity = new DocumentEntity();
+            documentEntity.setProject(projectEntity);
+            documentEntity.setName(DOCUMENT_TITLE);
+            documentEntity.setContent(this.getNewFamilyContent(familyEPackage));
+
+            documentEntity = this.documentRepository.save(documentEntity);
+            return documentEntity;
+        });
+
+        if (optionalDocumentEntity.isPresent()) {
+            DocumentEntity documentEntity = optionalDocumentEntity.get();
+
+            //<b class="conum">(2)</b>
+            JSONResourceFactory jsonResourceFactory = new JSONResourceFactory();
+            JsonResource resource = jsonResourceFactory.createResourceFromPath(documentEntity.getId().toString());
+            resourceSet.getResources().add(resource);
+            resource.eAdapters().add(new ResourceMetadataAdapter(DOCUMENT_TITLE));
+
+            try (var inputStream = new ByteArrayInputStream(documentEntity.getContent().getBytes())) {
+                resource.load(inputStream, null);
+
+                //<b class="conum">(3)</b>
+                var optionalFamilyDiagram = this.findDiagramDescription(editingContext, "Family Diagram Description");
+                if (optionalFamilyDiagram.isPresent()) {
+                    DiagramDescription familyDiagram = optionalFamilyDiagram.get();
+                    Object semanticTarget = resource.getContents().get(0);
+
+                    Diagram diagram = this.diagramCreationService.create(familyDiagram.getLabel(), semanticTarget, familyDiagram, editingContext);
+                    this.representationPersistenceService.save(editingContext, diagram);
+
+                    result = Optional.of(new RepresentationMetadata(diagram.getId(), diagram.getKind(), diagram.getLabel(), diagram.getDescriptionId()));
+                }
+            } catch (IOException exception) {
+                this.logger.warn(exception.getMessage(), exception);
+            }
+
+        }
+    }
+    return result;
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>First step is to create a document that will contains our family model</p>
+</li>
+<li>
+<p>Second step it load this document</p>
+</li>
+<li>
+<p>Third step is to create a diagram instance based on the Diagram Description named <code>Family Diagram Description</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can now restart your application and see the result!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_template_family.png" alt="Studio Developer - template - family">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validation_rules_10_min">Validation rules (~10 min)</h3>
+<div class="paragraph">
+<p>Please checkout the tag <code>FLOW_VALIDATION_RULES</code> from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.</p>
+</div>
+<div class="paragraph">
+<p>In Sirius Web its is possible to add validation rules for EMF Ecore metamodels.</p>
+</div>
+<div class="paragraph">
+<p>Once a project open, the <em>Validation</em> view (on the left of the application) shows the rules that are not valid.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_validation_view.png" alt="End-user - validation view" width="40%">
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s try to add a validation rule for the Flow metamodel.</p>
+</div>
+<div class="paragraph">
+<p>The first step is to declare a spring Configuration class that will register our validator in the EMF validator registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import fr.obeo.dsl.designer.sample.flow.FlowPackage;
+import java.util.Objects;
+import org.eclipse.emf.ecore.EValidator;
+import org.springframework.context.annotation.Configuration;
+import jakarta.annotation.PostConstruct;
+
+
+@Configuration
+public class SampleEMFValidation {
+
+
+    private final EValidator.Registry eValidatorRegistry;
+
+    public SampleEMFValidation(EValidator.Registry eValidatorRegistry) {
+        this.eValidatorRegistry = Objects.requireNonNull(eValidatorRegistry);
+    }
+
+    @PostConstruct
+    public void registerFamilyValidator() {
+        this.eValidatorRegistry.put(FlowPackage.eINSTANCE, new FlowValidator());
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, implement an <code>EValidator</code> for Flow:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">import fr.obeo.dsl.designer.sample.flow.FlowPackage;
+import fr.obeo.dsl.designer.sample.flow.Named;
+
+import java.util.Map;
+
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.util.EcoreValidator;
+
+public class FlowValidator implements EValidator {
+
+    public static final String INVALID_NAME_ERROR_MESSAGE = "The name %1$s is not well-formed.";
+
+    @Override
+    public boolean validate(EObject eObject, DiagnosticChain diagnostics, Map&lt;Object, Object&gt; context) {
+        return true;
+    }
+
+    @Override
+    public boolean validate(EDataType eDataType, Object value, DiagnosticChain diagnostics, Map&lt;Object, Object&gt; context) {
+        return true;
+    }
+
+    @Override
+    public boolean validate(EClass eClass, EObject eObject, DiagnosticChain diagnostics, Map&lt;Object, Object&gt; context) {
+        boolean isValid = true;
+        if (eObject instanceof Named flowNamedElement) {
+            isValid = this.nameIsWellFormedValidate(flowNamedElement, diagnostics) &amp;&amp; isValid;
+        }
+        return isValid;
+    }
+
+    private boolean nameIsWellFormedValidate(Named flowNamedElement, DiagnosticChain diagnostics) {
+        boolean isValid = EcoreValidator.isWellFormedJavaIdentifier(flowNamedElement.getName());
+
+        if (!isValid &amp;&amp; diagnostics != null) {
+            // @formatter:off
+            BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.WARNING,
+                    "sirius-web-family-application",
+                    0,
+                    String.format(INVALID_NAME_ERROR_MESSAGE, flowNamedElement.getName()),
+                    new Object [] {
+                        flowNamedElement,
+                        FlowPackage.Literals.NAMED__NAME,
+                    });
+            // @formatter:on
+
+            diagnostics.add(basicDiagnostic);
+        }
+
+        return isValid;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Restart your application and see the result on a Flow project:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/enduser_flow_validation_rule.png" alt="End-user - flow validation rule">
+</div>
+</div>
+<div class="paragraph">
+<p>You can observe that the warning message is displayed on the <em>Validation</em> view, but also directly under the appropriate attribute in the <em>Details</em> view.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_frontend_5_min">Frontend (~5 min)</h3>
+<div class="paragraph">
+<p>In this part, the Obeo team will demonstrate live the modification of the frontend of Sirius Web.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Show Papaya; it&#8217;s also an example of a more complex (less "toy") studio fully defined with the same tools the attendees used.</p>
+</li>
+<li>
+<p>Add the <code>PapayaOperationActivityLabelDetailToolContribution</code> (registration code in EditProjectView removed from the supplied version).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_packaging_10_min">Packaging (~10 min)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lets' package our Sirius Web application as a single jar file.</p>
+</div>
+<div class="paragraph">
+<p>The first and only step is to create an <em>Eclipse launch configuration</em> to build and package our Sirius Web application.
+Go to <em>Run &gt; Run Configurations&#8230;&#8203;</em> menu and then double-click on <em>Maven Build</em>.
+Set the base directory, gaols, user settings and parameters as below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_maven_run_configuration.png" alt="Studio Developer - Maven run configuration" width="80%">
+</div>
+</div>
+<div class="paragraph">
+<p>Click on <em>Run</em>.
+Your Sirius Web application is packaged!</p>
+</div>
+<div class="paragraph">
+<p>Go back to your Eclipse environment, refresh your spring project and then you should see a file named <code>sirius-web-family-application-2023.8.4-econ.jar</code> in the <code>target</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>This jar file contains your application all the dependencies needed to run properly!</p>
+</div>
+<div class="paragraph">
+<p>You can test it by launching the jar manually on your machine (if you have Java 17 minimum) with the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">java -jar sirius-web-family-application-2023.8.4-econ.jar</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sirius_web_view_builder_api_demonstration_performed_by_the_obeo_team_5_min">Sirius Web view-builder API demonstration performed by the Obeo team (~5 min)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this part, the Obeo team will demonstrate live the usage of <a href="https://github.com/eclipse-sirius/sirius-components/tree/master/packages/view/backend/sirius-components-view-builder">view-builder API</a>.</p>
+</div>
+<div class="paragraph">
+<p>This API allows to easily create Diagram and Forms Description from View, but programmatically.</p>
+</div>
+<div class="paragraph">
+<p>Please checkout <code>VIEW-BUILDER-API</code> tag from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion_5_min">Conclusion (~5 min)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thanks for attending this Sirius Web tutorial!
+We hope it will make you want to go further with it.</p>
+</div>
+<div class="paragraph">
+<p>Useful links:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sirius Web website: <a href="https://eclipse.dev/sirius/sirius-web.html" class="bare">https://eclipse.dev/sirius/sirius-web.html</a></p>
+</li>
+<li>
+<p>more details about the usage of Sirius Web or the usage the <em>Studio</em>: <a href="https://docs.obeostudio.com/" class="bare">https://docs.obeostudio.com/</a></p>
+</li>
+<li>
+<p>more details about AQL, the model query language: <a href="https://eclipse.dev/acceleo/documentation/" class="bare">https://eclipse.dev/acceleo/documentation/</a></p>
+</li>
+<li>
+<p>Sirius Web source code: <a href="https://github.com/eclipse-sirius/sirius-web" class="bare">https://github.com/eclipse-sirius/sirius-web</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2023-10-02 17:24:58 +0200
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+</body>
+</html>
