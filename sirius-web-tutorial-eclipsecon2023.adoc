@@ -1,0 +1,977 @@
+:source-highlighter: highlight.js
+
+= Sirius-web tutorial for EclipseCon 2023
+
+This 3 hours tutorial has been designed for link:https://www.eclipsecon.org/2023[EclipseCon 2023].
+
+You can do it by yourself by following the steps below.
+
+== Installation/setup (~15 min)
+
+Go to link:https://github.com/ObeoNetwork[Obeo Network (TODO INSERT THE DEFINITIVE GITHUB REPO LINK HERE)] and clone the repository.
+
+If you don't have git installed on your machine, just download the link:https://github.com/ObeoNetwork[zip (TODO INSERT THE DEFINITIVE ZIP LINK HERE)].
+
+Once unzipped or cloned, link:https://github.com/ObeoNetwork[download (TODO INSERT THE DEFINITIVE LINK HERE)] the Spring Tools 4 for Eclipse specially designed for this tutorial.
+Choose the bundle according to your OS.
+
+It contains an embedded Java Runtime Environment, Maven and all the maven dependencies you will need for this tutorial.
+
+Once unzipped, just launch it:
+
+* Windows: double-click on SpringToolSuite4.exe
+* Linux: double-click on SpringToolSuite4
+* macOS: double-click on SpringToolSuite4.app
+
+Once launched, you need to add the local git repository to the known repositories.
+Go to _Window > Perspective > Open Perspective > Other..._ menu and then select _Git_.
+From the _Git_ perspective, in the _Git Repositories_ view, click on _Add an existing local Git repository button_:
+
+image::images/installation_add_local_git_repository.png[Add an existing local Git repository, 30%]
+
+Browse on your OS the git repository of the tutorial. Select it and click on _Add_.
+Now, you should see the git repository on the _Git repositories_ view.
+
+Then, import the only project contained in the local git repository.
+
+TODO Add image 
+
+The last step is to create an _Eclipse launch configuration_ to run our Sirius Web application.
+Go to _Run > Run Configurations..._ menu and then double-click on _Spring Boot App_.
+Set the name, project, main type and profile as below:
+
+image::images/installation_run_config.png[Run configuration, 80%]
+
+Click on _Run_.
+Your Sirius Web application is ready!
+
+Go to _http://localhost:8080_ on your favorite web browser for the next part of the tutorial!
+
+== Presentation performed by the Obeo team (~5 min)
+
+Sirius Web allows to easily create and deploy graphical studios to the web.
+
+It is an open-source low-code platform to define custom web applications supporting your specific visual languages.
+
+For more details and contents (videos, online documentation, private instance to experiment all Sirius Web's features), please visit the link:https://eclipse.dev/sirius/sirius-web.html[Sirius Web website].
+
+For more details about the source code, please visit the link:https://github.com/eclipse-sirius/sirius-components[Sirius Web github repository].
+
+
+== Experiment as an end-user (~25 min)
+
+For this part, the Obeo team will perform a live demonstration of Sirius Web as an end-user.
+
+Do not hesitate to manipulate on your side to familiarize yourself with Sirius Web.
+
+=== Projects View
+
+The home page of Sirius Web shows the list of project templates (Blank Studio, Flow, Studio, Blank project, ...) and the list of existing projects.
+
+image::images/enduser_projects_view.png[Projects View]
+
+
+Create a _Flow_ project by clicking on the _Flow_ card. You should now see the dedicated project page:
+
+image::images/enduser_project_all_views.png[Project All Views]
+
+Flow contains an example model and a diagram representation based on the already packaged link:https://github.com/ObeoNetwork/Flow-Designer/[Flow metamodel].
+
+=== Explorer View
+
+The _Explorer_ view allows to see all your models contained in your project.
+From this view, you can create, edit and delete models, objects and representations.
+
+==== Create an object
+
+To create an object, just select any object or model, and click on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/enduser_explorer_view_create_object_menu_flow.png[Explorer view - create object, 40%]
+
+Select the type of model object you want to create and click on the _CREATE_ button.
+
+image::images/enduser_explorer_view_create_object_dialog_flow.png[Explorer view - create object, 40%]
+
+The new object is visible in the _Explorer_ view.
+
+image::images/enduser_explorer_view_create_object_result_flow.png[Explorer view - create object, 40%]
+
+==== Rename an object
+
+To rename an object, just select any tree item, and click on the menu icon associated (the three vertical dots), then click on the _Rename_ menu item.
+
+image::images/enduser_explorer_view_rename_object_menu_flow.png[Explorer view - rename object, 40%]
+
+The selected tree item is now editable, you can set a new value.
+
+image::images/enduser_explorer_view_rename_object_edition_flow.png[Explorer view - rename object, 40%]
+
+==== Delete an object
+
+To rename an object, just select any tree item, and click on the menu icon associated (the three vertical dots), then click on the _Delete_ menu item.
+
+image::images/enduser_explorer_view_delete_object_menu_flow.png[Explorer view - delete object, 40%]
+
+
+=== Details View
+
+The _Details_ view shows all properties of the selected object.
+
+It is updated from the selection in the _Explorer_ view or the active representation (diagram, form, ...).
+
+From there, you can edit each property of the selected object.
+
+=== Representations area
+
+The representations area shows all open representations (diagrams, forms, ...).
+
+==== Create a representation
+
+To create a representation, just select any object in the _Explorer_ view, and click on the menu icon associated (the three vertical dots), then click on the _New representation_ menu item.
+
+image::images/enduser_explorer_view_create_representation_menu_flow.png[Explorer view - create representation, 40%]
+
+Select the representation type you want to create, set a name and click on the _CREATE_ button.
+
+image::images/enduser_explorer_view_create_representation_dialog_flow.png[Explorer view - create representation, 40%]
+
+The new representation is visible in the _Explorer_ view and automatically open in the representations area.
+
+image::images/enduser_explorer_view_create_representation_result_flow.png[Explorer view - create representation, 80%]
+
+==== Create object from a diagram
+
+In this part of the tutorial, we are manipulating a diagram, which is one kind of representation.
+
+To create objects inside a diagram, just click on the diagram background, or any other object from the diagram.
+A palette will show the available tools from this place.
+
+image::images/enduser_diagram_palette_create_tool_flow.png[Diagram - create tool, 80%]
+
+Click on the type of object you want to create.
+
+image::images/enduser_diagram_palette_create_tool_result_flow.png[Diagram - create tool, 80%]
+
+==== Delete object from a diagram
+
+To delete an object from the diagram just select it.
+A palette will show the available tools from this place.
+Then you just have to click on the _Delete_ tool.
+
+image::images/enduser_diagram_palette_delete_tool_flow.png[Diagram - delete tool, 30%]
+
+==== Rename object from a diagram
+
+To rename an object from the diagram just select it.
+A palette will show the available tools from this place.
+Then you just have to click on the _Edit_ tool.
+
+image::images/enduser_diagram_palette_rename_tool_flow.png[Diagram - rename tool, 30%]
+
+The selected object is now editable, you can set a new value.
+
+image::images/enduser_diagram_palette_rename_tool_edition_flow.png[Diagram - rename tool, 30%]
+
+You can also just start typing the new value after the selection of the object, it will move to the editable mode.
+
+=== Collaborative edition performed by the Obeo team
+
+The Obeo team will demonstrate the collaborative capacities of Sirius Web.
+
+image::images/enduser_diagram_collaborative_edition.gif[Diagram - collaborative edition]
+
+== Experiment as a specifier (~25 min)
+
+In Sirius Web, one of the key features is the ability to define your own domain specific language and then manipulate it.
+
+In this part of the tutorial, as a specifier, we will create a new domain specific language (we call it _Studio_).
+Then as an end-user, we will manipulate this new language.
+
+In Sirius Web, a _Domain_ is composed with _Entities_ and _Relations_ objects.
+An _Entity_ may have _Attributes_, _Entities_ and _Relations_.
+A _Relation_ is a connection between two _Entities_.
+An _Attribute_ is either a _Text_, _Boolean_ or a _Number_.
+
+NOTE: If you don't want to specify yourself a new domain, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step1.zip_ and then _\your_local_git_repository\Family-Instance-Step1.zip_
+
+First, from the home page, click on the _Blank Studio_ template.
+
+Then, create a _Domain_ model, in the _Create a new model_ section.
+
+image::images/specifier_new_domain.png[Specifier - new domain]
+
+It creates a new document named _Domain_ containing an object named _Domain_.
+From the _Details_ view, rename this object from _Domain_ to _tutorial_.
+
+image::images/specifier_domain_rename.png[Specifier - rename domain]
+
+Then, create a _Domain_ diagram on this _tutorial_ domain object. It will help us the easily create and modify our domain specific language.
+To create this diagram, just _tutorial_ object in the _Explorer_ view, and click on the menu icon associated (the three vertical dots), then click on the _New representation_ menu item.
+
+image::images/specifier_domain_create_domain_diagram_menu.png[Specifier - create domain diagram]
+
+Select the representation type you want to create (_Domain_), set a name and click on the _CREATE_ button.
+
+image::images/specifier_domain_create_domain_diagram_dialog.png[Specifier - create domain diagram, 40%]
+
+The new representation is visible in the _Explorer_ view and automatically open in the representations area.
+
+image::images/specifier_domain_create_domain_diagram_result.png[Specifier - create domain diagram]
+
+Let's create the concepts we will manipulate later.
+
+From the diagram background, create an _Entity_ named _Family_ and another named _Person_.
+
+image::images/specifier_domain_create_entity_tool.png[Specifier - create entity]
+
+Let's link our two _Entities_ with a _Relation_.
+
+From the _Family_ object, click on the _Connector_ tool (the first one in the _Palette_), and then click on the _Person_ object.
+
+image::images/specifier_domain_create_relation_tool.png[Specifier - create relation]
+
+Three options are displayed on the screen, _Relation_, _Containment_ and _Supertype_.
+Select _Containment_ option. Indeed, a _Family_ will contains a set of _Person_.
+
+image::images/specifier_domain_create_relation_tool_target.png[Specifier - create relation]
+
+You should now see a _Relation_ between the _Entities_.
+
+image::images/specifier_domain_create_relation_result.png[Specifier - create relation]
+
+In the _Details_ view, just rename the link form _persons_ to _members_.
+
+image::images/specifier_domain_rename_relation.png[Specifier - rename relation]
+
+Almost done!
+We finish this first specification part by adding a _name_ attribute to _Family_ and _Person_.
+
+In the diagram, click on the _Family_ object and select the _Text_ attribute tool.
+
+image::images/specifier_domain_create_attribute_tool.png[Specifier - create attribute]
+
+Set its name to _name_. Do the same for _Person_.
+You should now have a domain looking like this:
+
+image::images/specifier_family_domain_step1_final.png[Specifier - step 1 - final]
+
+Just one last thing! You can go back to the home page (through the Sirius icon on the top left corner) and then rename your project from _Blank Studio_ to _Family-Studio_. Click on the menu icon associated (the three horizontal dots) to _Blank Studio_, then click on the _Rename_ menu item.
+
+image::images/specifier_rename_project.png[Specifier - rename project]
+
+=== Test the studio
+
+To test our studio, we need to create a new project.
+From the home page, click on the _Blank project_ template.
+
+image::images/enduser_projects_create_blank_project.png[End-user - create new project]
+
+Name this new project _Family-Instance_.
+
+image::images/enduser_projects_create_blank_project_name.png[End-user - create new project]
+
+Then, create an _Others..._ model, in the _Create a new model_ section.
+
+image::images/enduser_new_others.png[End-user - new document]
+
+From this new _Others..._ model, click on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/enduser_explorer_view_create_object_menu_family.png[End-user - new family, 40%]
+
+Select the type of model object you want to create (here a _Family_) and click on the _CREATE_ button.
+
+image::images/enduser_explorer_view_create_object_dialog_family.png[End-user - new family, 40%]
+
+Name the _Family_ (from the _Details_ view or with the _Rename_ menu item).
+Then, create one or two _Person_ and rename them.
+
+image::images/enduser_explorer_view_create_object_menu_person.png[End-user - new person, 40%]
+
+Select the type of model object you want to create (here a _Person_) and click on the _CREATE_ button.
+
+image::images/enduser_explorer_view_create_object_dialog_person.png[End-user - new person, 40%]
+
+Your instance model should look like this:
+
+image::images/enduser_family_instance_step1_final.png[End-user - step 1 - final, 40%]
+
+== COFFEE/TEA BREAK! (~10 min)
+
+== Experiment as a specifier (second part) (~20 min)
+
+Now we have a domain, we want to be able to manipulate it graphically.
+In the _Studio_, this part is called _View_.
+A _View_ allows to define the description of representations (diagrams, forms, ...).
+A _Diagram Description_ contains a set of _Node Descriptions_ and _Edges Descriptions_.
+A _Node Description_ contains the information needed to display an _Entity_ on a diagram.
+An _Edge Description_ contains the information needed to display a _Relation_ (or an _Entity_) on a diagram.
+
+
+NOTE: If you don't want to specify yourself a new view, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step2.zip_ and then _\your_local_git_repository\Family-Instance-Step2.zip_
+Do not forget to delete existing projects from previous steps before.
+
+First, create a _View_ model, in the _Create a new model_ section.
+
+image::images/specifier_new_view.png[Specifier - new view]
+
+It creates a new document named _View_ containing a view named _View_, and a diagram description named _New Diagram Description_.
+
+image::images/specifier_new_view_2.png[Specifier - new view]
+
+From the _Details_ view, rename this object from _New Diagram Description_ to _Family Diagram Description_.
+Set the domain type (the type of object on which we want to create this type of diagram) to `tutorial::Family`.
+Set the _Title Expression_ to `aql:Family Representation`.
+
+image::images/specifier_view_diagram_description_set_properties.png[Specifier - diagram description - set properties]
+
+From the _Family Diagram Description_, create a new _Node Description_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_create_node_description_menu.png[Specifier - diagram description - create node description, 40%]
+
+Select the _Node Description_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_create_node_description_dialog.png[Specifier - diagram description - create node description, 40%]
+
+A new _Node Description_ is visible in the _Explorer_ view.
+
+image::images/specifier_view_person_node_description.png[Specifier - node description]
+
+After selecting the _Node Description_ in the _Explorer_ view, let's change its properties in the _Details_ view:
+
+* Set the name to _Person Node_
+* Set the domain type to `tutorial::Person`
+* Set the semantic candidates expression to `aql:self.members`
+* Set the label expression to `aql:self.name`
+
+NOTE: if you want more details about the meaning of all elements and properties of the _Studio_, please go to https://docs.obeostudio.com/
+
+NOTE: if you want more details about AQL, the model query language, please go to https://eclipse.dev/acceleo/documentation/
+
+image::images/specifier_view_person_node_description_set_properties.png[Specifier - node description - set properties, 20%]
+
+We now need a _Color Palette_ to associate some colors to our _Nodes_ and _Edges_.
+From the _View_ object, create a new _Color Palette_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_create_color_palette_menu.png[Specifier - view - create color palette, 40%]
+
+Select the _Color Palette_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_create_color_palette_dialog.png[Specifier - view - create color palette, 40%]
+
+A new _Color Palette_ is visible in the _Explorer_ view.
+
+image::images/specifier_view_color_palette.png[Specifier - color palette]
+
+Inside this _Color Palette_, let's create 3 colors:
+
+* _person_background color_ with value `#f7e6f0`
+* _person_border_color_ with value `#242055`
+* _person_label_color_ with value `#242055`
+
+From the _Color Palette_ object, create a new _Color_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_color_palette_create_color_menu.png[Specifier - view - create color, 40%]
+
+Select the _Fixed Color_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_color_palette_create_color_dialog.png[Specifier - view - create color, 40%]
+
+The colors have been created.
+Let's use those colors for the _Person Node_ object.
+In the _Explorer_ view, click on the _RectangularNodeStyleDescription_ under the _Person Node_ object.
+Set its properties:
+
+* _Width Expression_ to `100`
+* _Width Expression_ to `70`
+* _Label Color_ to `person_label_color`
+* _Color_ to `person_background_color`
+* _Border Color_ to `person_border_color`
+
+image::images/specifier_view_person_node_description_set_style_properties.png[Specifier - node description style - set properties]
+
+Finally, let's create a tool allowing to create a _Person_ inside the diagram.
+
+From the _Family Diagram Description_ object, create a new _Palette_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_diagram_description_create_palette_menu.png[Specifier - diagram description - create palette, 40%]
+
+Select the _Palette_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_diagram_description_create_palette_dialog.png[Specifier - diagram description - create palette, 40%]
+
+From the the _DiagramPalette_ object, create a new _Node Tool_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_diagram_palette_create_node_tool_menu.png[Specifier - diagram palette - create node tool, 40%]
+
+Select the _Node Tool_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_diagram_palette_create_node_tool_dialog.png[Specifier - diagram palette - create node tool, 40%]
+
+From the _Details_ view, rename this _Node Tool_ to _Person_.
+
+From the the _Node Tool_ object, create a new _Create Instance_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_node_tool_create_instance_menu.png[Specifier - node tool - create instance, 40%]
+
+Select the _Create Instance_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_node_tool_create_instance_dialog.png[Specifier - node tool - create instance, 40%]
+
+From the _Details_ view, set the properties of the _Create Instance_ object:
+
+* _Type Name_ to `tutorial::Person`
+* _Reference Name_ to `members`
+* _Variable Name_ to `newPerson`
+
+image::images/specifier_view_person_tool_create_instance_set_properties.png[Specifier - create instance - set properties]
+
+At this stage, our creation tool should work.
+But would it be better if a new _Person_ created from this tool was created with a default name?
+Let's do that.
+
+From the the _Create Instance_ object, create a new _Change Context_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_node_tool_change_context_menu.png[Specifier - node tool - change context, 40%]
+
+Select the _Change Context_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_node_tool_change_context_dialog.png[Specifier - node tool - change context, 40%]
+
+From the _Details_ view, set the properties of the _Change Context_ object:
+
+* _Expression_ to `aql:newPerson`
+
+image::images/specifier_view_person_tool_change_context_set_properties.png[Specifier - change context - set properties]
+
+From the the _Change Context_ object, create a new _Set Value_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_node_tool_set_value_menu.png[Specifier - node tool - set value, 40%]
+
+Select the _Set Value_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_node_tool_set_value_dialog.png[Specifier - node tool - set value, 40%]
+
+From the _Details_ view, set the properties of the _Set Value_ object:
+
+* _Feature Name_ to `name`
+* _Value Expression_ to `new Person`
+
+image::images/specifier_view_person_tool_set_value_set_properties.png[Specifier - set value - set properties]
+
+Now test this second part as an end-user!
+
+=== Test the studio
+
+From the home page, click on the _Family-Instance_ project.
+  
+From the _Explorer_ view, select your _Family_ object and create a new _Family Diagram Description_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/enduser_family_create_representation_menu.png[End-user - create representation, 40%]
+
+Select the representation type you want to create (a _Family Diagram Description_), set a name and click on the _CREATE_ button.
+
+image::images/enduser_family_create_representation_dialog.png[End-user - create representation, 40%]
+
+The new representation is visible in the _Explorer_ view and automatically open in the representations area.
+
+image::images/enduser_family_create_representation_result.png[End-user - create representation]
+
+Click on the background of the diagram, then click on the _Person_ tool.
+
+image::images/enduser_family_diagram_person_tool.png[End-user - diagram - person tool]
+
+There you go! The new _Person_ is visible in the diagram and the _Explorer_ view.
+
+image::images/enduser_family_instance_step2_final.png[End-user - diagram - person tool]
+
+== Experiment as a specifier (third part) (~10 min)
+
+In this third part of the experiment, we will add a new _Relation_ named _children_ to our _Family_ domain and also define it graphically in the associated _View_.
+
+NOTE: If you don't want to specify yourself this part, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step3.zip_ and then _\your_local_git_repository\Family-Instance-Step3.zip_.
+Do not forget to delete existing projects from previous steps before.
+
+From the home page, click on the _Family-Studio_ project.
+In the _Family-Studio_ project, open the _Domain_ diagram.
+Then in the diagram, click on the _Person_ object, select the _Connector_ tool (the first one).
+Click on the _Person_ again (indeed the _children_ will start from a _Person_ an will target others _Persons_) and select _Relation_ (the first choice in the list).
+
+image::images/specifier_domain_person_create_relation_children.png[Specifier - domain - create relation]
+
+Select this new _Relation_ to _children_ and set its properties:
+
+* _Name_ to `children`
+* _Optional_ to `true`
+* _Many_ to `true`
+* _Containment_ to `false`
+* _Target Type_ to `Entity Person`
+
+image::images/specifier_domain_person_create_relation_children_set_properties.png[Specifier - domain relation - set properties]
+
+Then, in the _View_ model, from the _Family Diagram Description_ object, create an _Edge Description_ and set its properties:
+
+* _Name_ to `Children Edge`
+* _Domain Type_ to empty value
+* _Semantic Candidates Expression_ to empty value
+* _Precondition Expression_ to empty value
+* _Synchronization Policy_ to `SYNCHRONIZED`
+* _Label Expression_ to empty value
+* _Begin Label Expression_ to empty value
+* _End Label Expression_ to empty value
+* _Is Domain Based Edge_ to `false`
+* _Source Node Descriptions_ to `Node Description Person Node`
+* _Target Node Descriptions_ to `Node Description Person Node`
+* _Source Node Expression_ to `aql:self`
+* _Target Node Expression_ to `aql:self.children`
+
+image::images/specifier_view_create_edge_set_properties.png[Specifier - view edge - set properties]
+
+You can also set the color of the edge by clicking on the _EdgeStyle_ object inside the _Children Edge_ object.
+Then change the _Color_ properties in the _Details_ view to `FixedColor person_border_color`.
+
+image::images/specifier_view_edge_style_set_properties.png[Specifier - view edge style - set properties]
+
+=== Test the studio
+
+From the home page, click on the _Family-Instance_ project.
+  
+From the _Explorer_ view, open your _Family Representation_ diagram.
+
+Then click on a _Person_ in the diagram.
+In the _Details_ view you should see a new property named _Children_.
+From this property, set the _Persons_ you want as children of the selected _Person_.
+
+You should see your diagram updated instantaneously with new edges:
+
+image::images/enduser_family_instance_step3_final.png[End-user - diagram - edges]
+
+== Experiment as a specifier (fourth part) (~10 min)
+       
+In this fourth part of the experiment, we will create sub-types to _Person_ (_Woman_ and _Man_), and add a new _Conditional Styles_ to our _Person Node_ in the _View_.
+
+NOTE: If you don't want to specify yourself this part, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step4.zip_ and then _\your_local_git_repository\Family-Instance-Step4.zip_.
+Do not forget to delete existing projects from previous steps before.
+
+From the home page, click on the _Family-Studio_ project.
+In the _Family-Studio_ project, open the _Domain_ diagram.
+Then in the diagram, click on the diagram background, select the _Entity_ tool (the first one).
+Name this _Entity_: _Woman_ and do the same for _Man_.
+
+Select the _Woman_ _Entity_ and from the _Details_ view, select _Entity Person_ as _Super Types_.
+Do the same for _Man_.
+Finally, make _Person_ abstract from the _Details_ view.
+
+Your domain should look like this:
+
+image::images/specifier_domain_man_woman.png[Specifier - domain - man & woman]
+
+Lets' add some _Conditional styles_ to our _View_.
+
+From the the _Person Node_ object, create a new _Conditional Node Style_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_person_node_conditional_style_menu.png[Specifier - node - conditional style, 40%]
+
+Select the _Conditional Node Style_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_person_node_conditional_style_dialog.png[Specifier - node - conditional style, 40%]
+
+Select this new _Conditional Node Style_ and set its properties:
+
+* _Condition_ to `aql:self.oclIsKindOf(tutorial::Woman)`
+
+image::images/specifier_view_person_node_conditional_style_set_properties.png[Specifier - node - conditional style - set properties]
+
+From the the _Conditional Node Style_ object, create a new _Image Node Style Description_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/specifier_view_person_node_conditional_style_image_node_style_menu.png[Specifier - node - conditional style - image node style, 40%]
+
+Select the _Image Node Style Description_ object type and click on the _CREATE_ button.
+
+image::images/specifier_view_person_node_conditional_style_image_node_style_dialog.png[Specifier - node - conditional style - image node style, 40%]
+
+Select this new _Image Node Style Description_ and set its properties:
+
+* _Shape_ to `woman`
+* _Width Expression_ to `70`
+* _Height Expression_ to `70`
+* _Show Icon_ to `false`
+* _Label Color_ to `FixedColor person_label_color`
+* _Color_ to `None`
+* _Border Color_ to `None`
+* _Border Radius_ to `3`
+* _Border Size_ to `0`
+* _Border Line Style_ to `None`
+
+image::images/specifier_view_person_node_conditional_style_image_node_style_set_properties.png[Specifier - node - conditional style - image node style - set properties]
+
+Now add a new _Conditional Node Style_ but this time for _Man_.
+
+Finally, update the _DiagramPalette_: add new creation tools for _Woman_ and _Man_.
+It is the same than the existing creation tool for _Person_ but with adapted values.
+After that, you can remove the _Person_ creation tool cause it is now useless.
+Indeed, _Person_ is now an abstract _Entity_ and cannot be instantiated anymore.
+
+At the end, your _View_ should look like this:
+
+image::images/specifier_family_domain_step4_final.png[Specifier - step4 - final, 40%]
+
+=== Test the studio
+
+WARNING: The evolution we have made to our domain makes the existing model in _Family-Instance_ obsolete.
+You must delete the _Family-Instance_ project from the home page.
+
+From the home page, click on the _Blank project_ template.
+
+image::images/enduser_projects_create_blank_project.png[End-user - create new project]
+
+Name this new project _Family-Instance_.
+
+image::images/enduser_projects_create_blank_project_name.png[End-user - create new project]
+
+Then, create an _Others..._ model, in the _Create a new model_ section.
+
+image::images/enduser_new_others.png[End-user - new document]
+
+From this new _Others..._ model, click on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+image::images/enduser_explorer_view_create_object_menu_family.png[End-user - new family, 40%]
+
+Select the type of model object you want to create (here a _Family_) and click on the _CREATE_ button.
+
+image::images/enduser_explorer_view_create_object_dialog_family.png[End-user - new family, 40%]
+
+Name the _Family_ (from the _Details_ view or with the _Rename_ menu item).
+
+From the _Explorer_ view, create _Family Representation_ diagram from the _Family_ object.
+
+Click on the background of the diagram, and select the _Woman_ tool.
+Do the same for the _Man_ tool.
+
+image::images/enduser_explorer_view_create_man_woman.png[End-user - new man new woman]
+
+Then click on a _Person_ (a _Woman_ or a _Man_) in the diagram.
+In the _Details_ view you should see a new property named _Children_.
+From this property, set the _Persons_ you want as children of the selected _Person_.
+
+You should see your diagram updated instantaneously with new edges:
+
+image::images/enduser_family_instance_step4_final.png[End-user - step4 - final]
+
+== COFFEE/TEA BREAK! (~10 min)
+
+== Sirius Web forms demonstration performed by the Obeo team (~5 min)
+
+Diagrams are not the only kind of representation provided by default by Sirius Web.
+Forms are also a great tool to display data to the users.
+
+NOTE: If you want to benefit from this part of the tutorial, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step5.zip_ and then _\your_local_git_repository\Family-Instance-Step5.zip_.
+Do not forget to delete existing projects from previous steps before.
+
+Here is an example of what can be done from the specifier side:
+
+image::images/specifier_family_domain_step5_final.png[Specifier - step5 - final]
+
+Here is the result from the end-user side:
+
+image::images/enduser_family_instance_step5_final.png[End-user - step5 - final]
+
+== Experiment as backend specifier (~25 min)
+
+As as Sirius Web specifier, you can also do a lot of things programmatically (templates, validation rules, representations descriptions, ...).
+
+Let's implement some of them!
+
+=== Templates (~10 min)
+
+From the homepage of Sirius Web, you can see some template. In Sirius Web, a template is a project initializer and accelerator.
+
+image::images/specifier_templates.png[Specifier - templates]
+
+Please checkout the tag `FAMILY_TEMPLATE` from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
+
+There are two interfaces to implement to provide a new template in Sirius Web:
+
+* an `IProjectTemplateProvider`
+* an `IProjectTemplateInitializer`
+
+For the `IProjectTemplateProvider`, the code look like this:
+
+[source,java]
+----
+import java.util.List;
+
+import org.eclipse.sirius.web.services.api.projects.IProjectTemplateProvider;
+import org.eclipse.sirius.web.services.api.projects.ProjectTemplate;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FamilyProjectTemplatesProvider implements IProjectTemplateProvider {
+
+    public static final String FAMILY_TEMPLATE_ID = "family-template";
+
+    @Override
+    public List<ProjectTemplate> getProjectTemplates() {
+        var flowTemplate = ProjectTemplate.newProjectTemplate(FAMILY_TEMPLATE_ID)
+                .label("Family")
+                .imageURL("/images/Family-Template.png")
+                .natures(List.of())
+                .build();
+        return List.of(flowTemplate);
+    }
+}
+----
+
+For the `IProjectTemplateInitializer`, the code look like this:
+
+[source,java]
+----
+import org.eclipse.sirius.web.services.api.projects.IProjectTemplateInitializer;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class FamilyProjectTemplatesInitializer implements IProjectTemplateInitializer {
+
+    @Override
+    public boolean canHandle(String templateId) {
+        return FamilyProjectTemplatesProvider.FAMILY_TEMPLATE_ID.equals(templateId); //<1>
+    }
+
+    @Override
+    public Optional<RepresentationMetadata> handle(String templateId, IEditingContext editingContext) {
+        if (FamilyProjectTemplatesProvider.FAMILY_TEMPLATE_ID.equals(templateId)) {
+            return this.initializeFamilyProject(editingContext); //<2>
+        }
+        return Optional.empty();
+    }
+}
+----
+<1> this template initializer only applies when the `FamilyProjectTemplatesProvider` is called.
+<2> the content of `initializeFamilyProject` is described below.
+
+
+[source,java]
+----
+private Optional<RepresentationMetadata> initializeFamilyProject(IEditingContext editingContext) {
+    
+    Optional<RepresentationMetadata> result = Optional.empty();
+    Optional<AdapterFactoryEditingDomain> optionalEditingDomain = Optional.of(editingContext)
+            .filter(EditingContext.class::isInstance)
+            .map(EditingContext.class::cast)
+            .map(EditingContext::getDomain);
+    Optional<UUID> editingContextUUID = new IDParser().parse(editingContext.getId());
+    if (optionalEditingDomain.isPresent() && editingContextUUID.isPresent()) {
+        AdapterFactoryEditingDomain adapterFactoryEditingDomain = optionalEditingDomain.get();
+        ResourceSet resourceSet = adapterFactoryEditingDomain.getResourceSet();
+
+        EPackage familyEPackage = this.getTutorialEPackage(editingContext.getId());
+
+        //<1>
+        var optionalDocumentEntity = this.projectRepository.findById(editingContextUUID.get()).map(projectEntity -> {
+            DocumentEntity documentEntity = new DocumentEntity();
+            documentEntity.setProject(projectEntity);
+            documentEntity.setName(DOCUMENT_TITLE);
+            documentEntity.setContent(this.getNewFamilyContent(familyEPackage));
+
+            documentEntity = this.documentRepository.save(documentEntity);
+            return documentEntity;
+        });
+
+        if (optionalDocumentEntity.isPresent()) {
+            DocumentEntity documentEntity = optionalDocumentEntity.get();
+
+            //<2>
+            JSONResourceFactory jsonResourceFactory = new JSONResourceFactory();
+            JsonResource resource = jsonResourceFactory.createResourceFromPath(documentEntity.getId().toString());
+            resourceSet.getResources().add(resource);
+            resource.eAdapters().add(new ResourceMetadataAdapter(DOCUMENT_TITLE));
+
+            try (var inputStream = new ByteArrayInputStream(documentEntity.getContent().getBytes())) {
+                resource.load(inputStream, null);
+
+                //<3>
+                var optionalFamilyDiagram = this.findDiagramDescription(editingContext, "Family Diagram Description");
+                if (optionalFamilyDiagram.isPresent()) {
+                    DiagramDescription familyDiagram = optionalFamilyDiagram.get();
+                    Object semanticTarget = resource.getContents().get(0);
+
+                    Diagram diagram = this.diagramCreationService.create(familyDiagram.getLabel(), semanticTarget, familyDiagram, editingContext);
+                    this.representationPersistenceService.save(editingContext, diagram);
+
+                    result = Optional.of(new RepresentationMetadata(diagram.getId(), diagram.getKind(), diagram.getLabel(), diagram.getDescriptionId()));
+                }
+            } catch (IOException exception) {
+                this.logger.warn(exception.getMessage(), exception);
+            }
+
+        }
+    }
+    return result;
+}
+----
+<1> First step is to create a document that will contains our family model
+<2> Second step it load this document
+<3> Third step is to create a diagram instance based on the Diagram Description named `Family Diagram Description`
+
+
+You can now restart your application and see the result!
+
+image::images/specifier_template_family.png[Specifier - template -family]
+
+=== Validation rules (~10 min)
+
+Please checkout the tag `FLOW_VALIDATION_RULES` from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
+
+In Sirius Web its is possible to add validation rules for EMF Ecore metamodels.
+
+Once a project open, the _Validation_ view (on the left of the application) shows the rules that are not valid.
+
+image::images/enduser_validation_view.png[End-user - validation view]
+
+Let's try to add a validation rule for the Flow metamodel.
+
+The first step is to declare a spring Configuration class that will register our validator in the EMF validator registry.
+
+[source, java]
+----
+import fr.obeo.dsl.designer.sample.flow.FlowPackage;
+import java.util.Objects;
+import org.eclipse.emf.ecore.EValidator;
+import org.springframework.context.annotation.Configuration;
+import jakarta.annotation.PostConstruct;
+
+
+@Configuration
+public class SampleEMFValidation {
+
+
+    private final EValidator.Registry eValidatorRegistry;
+
+    public SampleEMFValidation(EValidator.Registry eValidatorRegistry) {
+        this.eValidatorRegistry = Objects.requireNonNull(eValidatorRegistry);
+    }
+
+    @PostConstruct
+    public void registerFamilyValidator() {
+        this.eValidatorRegistry.put(FlowPackage.eINSTANCE, new FlowValidator());
+    }
+}
+----
+
+Then, implement an `EValidator` for Flow:
+
+[source, java]
+----
+import fr.obeo.dsl.designer.sample.flow.FlowPackage;
+import fr.obeo.dsl.designer.sample.flow.Named;
+
+import java.util.Map;
+
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.util.EcoreValidator;
+
+public class FlowValidator implements EValidator {
+
+    public static final String INVALID_NAME_ERROR_MESSAGE = "The name %1$s is not well-formed.";
+
+    @Override
+    public boolean validate(EObject eObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return true;
+    }
+
+    @Override
+    public boolean validate(EDataType eDataType, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return true;
+    }
+
+    @Override
+    public boolean validate(EClass eClass, EObject eObject, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        boolean isValid = true;
+        if (eObject instanceof Named flowNamedElement) {
+            isValid = this.nameIsWellFormedValidate(flowNamedElement, diagnostics) && isValid;
+        }
+        return isValid;
+    }
+
+    private boolean nameIsWellFormedValidate(Named flowNamedElement, DiagnosticChain diagnostics) {
+        boolean isValid = EcoreValidator.isWellFormedJavaIdentifier(flowNamedElement.getName());
+
+        if (!isValid && diagnostics != null) {
+            // @formatter:off
+            BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.WARNING,
+                    "sirius-web-family-application",
+                    0,
+                    String.format(INVALID_NAME_ERROR_MESSAGE, flowNamedElement.getName()),
+                    new Object [] {
+                        flowNamedElement,
+                        FlowPackage.Literals.NAMED__NAME,
+                    });
+            // @formatter:on
+
+            diagnostics.add(basicDiagnostic);
+        }
+
+        return isValid;
+    }
+}
+----
+
+Restart your application and see the result on a Flow project:
+
+image::images/enduser_flow_validation_rule.png[End-user - flow validation rule]
+
+You can observe that the warning message is displayed on the _Validation_ view, but also directly under the appropriate attribute in the _Details_ view.
+
+=== Frontend (~5 min)
+
+In this part, the Obeo team will demonstrate live the modification of the frontend of Sirius Web.
+
+== Packaging (~10 min)
+
+Lets' package our Sirius Web application as a single jar file.
+
+The first and only step is to create an _Eclipse launch configuration_ to build and package our Sirius Web application.
+Go to _Run > Run Configurations..._ menu and then double-click on _Maven Build_.
+Set the base directory, gaols, user settings and parameters as below:
+
+image::images/specifier_maven_run_configuration.png[Specifier - Maven run configuration, 80%]
+
+Click on _Run_.
+Your Sirius Web application is packaged!
+
+Go back to your Eclipse environment, refresh your spring project and then you should see a file named `sirius-web-family-application-2023.6.5.jar` (TODO update the name of the jar) in the `target` folder.
+
+This jar file contains your application all the dependencies needed to run properly! 
+
+You can test it by launching the jar manually on your machine (if you have Java 17 minimum) with the following command:
+
+[source, shell]
+----
+java -jar sirius-web-family-application-2023.6.5.jar  (TODO update the name of the jar)
+----
+
+== Sirius Web view-builder API demonstration performed by the Obeo team (~5 min)
+
+In this part, the Obeo team will demonstrate live the usage of link:https://github.com/eclipse-sirius/sirius-components/tree/master/packages/view/backend/sirius-components-view-builder[view-builder API].
+
+This API allows to easily create Diagram and Forms Description from View, but programmatically.
+
+Please checkout `VIEW-BUILDER-API` tag from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
+
+== Conclusion (~5 min)
+
+Thanks for attending this Sirius Web tutorial!
+We hope it will make you want to go further with it.
+
+Useful links:
+
+* Sirius Web website: https://eclipse.dev/sirius/sirius-web.html
+* more details about the usage of Sirius Web or the usage the _Studio_: https://docs.obeostudio.com/
+* more details about AQL, the model query language: https://eclipse.dev/acceleo/documentation/
+* Sirius Web source code: https://github.com/eclipse-sirius/sirius-components
+
