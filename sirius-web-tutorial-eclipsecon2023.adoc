@@ -803,7 +803,85 @@ Let's implement some of them!
 
 === Java Services (~10 min)
 
-TODO
+So far in the studio definition we have used AQL expressions to navigate inside our models and to compute some values (for example labels).
+Sometimes you need to perform more complex computations that what can be (easily) expressed in AQL.
+Fortunately, Sirius Web makes it pretty easy to call into custom Java code directly from AQL using what's called _Java Services_.
+
+The actual Java services:
+
+[source,java]
+----
+public class FamilyServices {
+
+    // aql:self.name + ' ' + self.eContainer().name
+    public String fullName(EObject person) {
+        if (this.isInstance(person, "tutorial", "Person")) {
+            EObject parent = person.eContainer();
+            if (this.isInstance(parent, "tutorial", "Family")) {
+                String familyName = (String) this.getAttribute(parent, "name");
+                String ownName = (String) this.getAttribute(person, "name");
+                return ownName + " " + familyName;
+            }
+        }
+        return "";
+    }
+
+    private Object getAttribute(EObject object, String attributeName) {
+        return object.eGet(object.eClass().getEStructuralFeature(attributeName));
+    }
+
+    private boolean isInstance(EObject object, String domain, String typeName) {
+        if (object != null) {
+            EClass klass = object.eClass();
+            return klass.getName().equals(typeName) && klass.getEPackage().getName().equals(domain);
+        } else {
+            return false;
+        }
+    }
+
+}
+----
+
+Simpler version, but with no checks at all:
+
+[source,java]
+----
+public class FamilyServices {
+    // aql:self.name + ' ' + self.eContainer().name
+    public String fullName(EObject person) {
+        return this.getName(person.eContainer()) + " " + this.getName(person);
+    }
+
+    private String getName(EObject object) {
+        return (String) object.eGet(object.eClass().getEStructuralFeature("name"));
+    }
+}
+----
+
+We also need to tell Sirius Web about this new class, but is should only be available in our Family studio.
+This is done by registering an `IJavaServiceProvider` Spring bean:
+
+[source,java]
+----
+@Service
+public class FamilyServicesProvider implements IJavaServiceProvider {
+    @Override
+    public List<Class<?>> getServiceClasses(View view) {
+        boolean isTestView = view.getDescriptions().stream()
+                .filter(DiagramDescription.class::isInstance)
+                .map(DiagramDescription.class::cast)
+                .anyMatch(diagramDescription -> diagramDescription.getDomainType().equals("tutorial::Family"));
+        if (isTestView) {
+            return List.of(FamilyServices.class);
+        }
+        return List.of();
+    }
+}
+----
+
+Once this is done and the backend has restarted, we can now use our new service method (`fullName`) from AQL expressions in our Family Studio.
+In the _Family Diagram Description_, change the _Label Expression_ for _Person Node_ to: `aql:self.fullName()`.
+Re-open the diagram.
 
 === Project Templates (~10 min)
 
