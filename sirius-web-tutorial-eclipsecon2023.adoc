@@ -2,15 +2,52 @@
 
 = Sirius-web tutorial for EclipseCon 2023
 
+[IMPORTANT]
+====
+_Speaker_ starts with a welcome and short overall presentation of:
+
+. what the tutorial is about
+. what are the objectives
+. expected pre-requisites
+. how the tutorial is organized (e.g. 3 hours, with 2 breaks)
+
+_Attendees_ listen and can ask for clarification before we proceed.
+====
+
 This 3 hours tutorial has been designed for link:https://www.eclipsecon.org/2023[EclipseCon 2023].
 
 You can do it by yourself by following the steps below.
 
+By the end of this tutorial, you should be able to create your own Sirius Web-based application with your own business domain and diagrams, ready to run and/or deploy on a server.
+
+The structure of the tutorial is as follows:
+
+. if you have not done so already beforehand, you will need to install the required devevelopment tools and the sample application we prepared.
+. after a short general presentation of Sirius Web, you will launch the sample application in your machine, and experiment as an _end-user_ the example studio it provides.
+. then you will switch to the _studio maker_ role, and learn how to use Sirius Web to define your own studio directly from your browser.
+This is the main part of the tutorial we will spend the most time.
+. finally you will see how more advanced features and use cases can be implemented by extending the Java-based backend.
+
 == Installation/setup (~15 min)
+
+[IMPORTANT]
+====
+_Speaker_ goes through the required setup steps along with the _attendees_.
+_Helpers_ make sure everybody follows along and nobody gets stuck.
+====
+
+[NOTE]
+====
+In this section you will:
+
+. Install the development tools required to work on Sirius Web on your machine.
+. Import the code from the example Sirius Web-based application we will be using.
+. Get this initial version running locally.
+====
 
 Go to link:https://github.com/ObeoNetwork[Obeo Network (TODO INSERT THE DEFINITIVE GITHUB REPO LINK HERE)] and clone the repository.
 
-If you don't have git installed on your machine, just download the link:https://github.com/ObeoNetwork[zip (TODO INSERT THE DEFINITIVE ZIP LINK HERE)].
+If you don't have Git installed on your machine, just download the link:https://github.com/ObeoNetwork[zip (TODO INSERT THE DEFINITIVE ZIP LINK HERE)].
 
 Once unzipped or cloned, link:https://github.com/ObeoNetwork[download (TODO INSERT THE DEFINITIVE LINK HERE)] the Spring Tools 4 for Eclipse specially designed for this tutorial.
 Choose the bundle according to your OS.
@@ -49,6 +86,12 @@ Go to _http://localhost:8080_ on your favorite web browser for the next part of 
 
 == Presentation performed by the Obeo team (~5 min)
 
+[IMPORTANT]
+====
+_Speaker_ gives a short presentation of Sirius Web, based on link:https://docs.google.com/presentation/d/1Lob5F2C0jzd-_Ln2v-w9AbBjVhKO3o7dAmVgMcqLi6Q/edit?usp=sharing[slides]
+_Attendees_ listen and can ask questions at the end.
+====
+
 Sirius Web allows to easily create and deploy graphical studios to the web.
 
 It is an open-source low-code platform to define custom web applications supporting your specific visual languages.
@@ -60,18 +103,31 @@ For more details about the source code, please visit the link:https://github.com
 
 == Experiment as an end-user (~25 min)
 
+[IMPORTANT]
+====
+
+- _Speaker_ goes through all the steps once, explaining new concepts as needed.
+- Afterwards, _attendees_ are asked to try and reproduce these steps to obtain this result (insert a screenshot of expected final state at the beginning). They have the detailed instructions if needed, but they are encouraged to try by themselves and to improvise/explore.
+- _Helpers_ make sure everybody follows along and nobody gets stuck.
+====
+
+[NOTE]
+====
+In this section you will use the studio already configured in the application to create sample data and manipulate it through a diagram representation.
+====
+
 For this part, the Obeo team will perform a live demonstration of Sirius Web as an end-user.
 
 Do not hesitate to manipulate on your side to familiarize yourself with Sirius Web.
 
 === Projects View
 
-The home page of Sirius Web shows the list of project templates (Blank Studio, Flow, Studio, Blank project, ...) and the list of existing projects.
+The home page of Sirius Web shows the list of project templates (Blank Studio, Flow, Studio, Blank project, ...) and the list of already existing projects.
 
 image::images/enduser_projects_view.png[Projects View]
 
-
-Create a _Flow_ project by clicking on the _Flow_ card. You should now see the dedicated project page:
+Create a _Flow_ project by clicking on the _Flow_ card.
+You should now see the dedicated project page:
 
 image::images/enduser_project_all_views.png[Project All Views]
 
@@ -79,7 +135,7 @@ Flow contains an example model and a diagram representation based on the already
 
 === Explorer View
 
-The _Explorer_ view allows to see all your models contained in your project.
+The _Explorer_ view allows to see all the models contained in your project.
 From this view, you can create, edit and delete models, objects and representations.
 
 ==== Create an object
@@ -98,7 +154,7 @@ image::images/enduser_explorer_view_create_object_result_flow.png[Explorer view 
 
 ==== Rename an object
 
-To rename an object, just select any tree item, and click on the menu icon associated (the three vertical dots), then click on the _Rename_ menu item.
+To rename an object, select it in the explorer, and click on the menu icon associated (the three vertical dots), then click on the _Rename_ menu item.
 
 image::images/enduser_explorer_view_rename_object_menu_flow.png[Explorer view - rename object, 40%]
 
@@ -108,10 +164,9 @@ image::images/enduser_explorer_view_rename_object_edition_flow.png[Explorer view
 
 ==== Delete an object
 
-To rename an object, just select any tree item, and click on the menu icon associated (the three vertical dots), then click on the _Delete_ menu item.
+To delete an object, select it in the explorer, and click on the menu icon associated (the three vertical dots), then click on the _Delete_ menu item.
 
 image::images/enduser_explorer_view_delete_object_menu_flow.png[Explorer view - delete object, 40%]
-
 
 === Details View
 
@@ -120,6 +175,7 @@ The _Details_ view shows all properties of the selected object.
 It is updated from the selection in the _Explorer_ view or the active representation (diagram, form, ...).
 
 From there, you can edit each property of the selected object.
+Changes are applied immediatly.
 
 === Representations area
 
@@ -127,13 +183,15 @@ The representations area shows all open representations (diagrams, forms, ...).
 
 ==== Create a representation
 
-To create a representation, just select any object in the _Explorer_ view, and click on the menu icon associated (the three vertical dots), then click on the _New representation_ menu item.
+To create a representation, select any object in the _Explorer_ view, and click on the menu icon associated (the three vertical dots), then click on the _New representation_ menu item.
 
 image::images/enduser_explorer_view_create_representation_menu_flow.png[Explorer view - create representation, 40%]
 
 Select the representation type you want to create, set a name and click on the _CREATE_ button.
 
 image::images/enduser_explorer_view_create_representation_dialog_flow.png[Explorer view - create representation, 40%]
+
+NOTE: Not all representations are available on every type of element.
 
 The new representation is visible in the _Explorer_ view and automatically open in the representations area.
 
@@ -180,19 +238,41 @@ The Obeo team will demonstrate the collaborative capacities of Sirius Web.
 
 image::images/enduser_diagram_collaborative_edition.gif[Diagram - collaborative edition]
 
-== Experiment as a studio maker (~25 min)
+== Experiment as a studio maker: defining a domain (~25 min)
 
-In Sirius Web, one of the key features is the ability to define your own domain specific language and then manipulate it.
+[NOTE]
+====
+For the rest of the tutorial you will switch roles from _end-user_ of an already existing studio to _studio maker_ to create your own.
+The first step is to tell Sirius Web about the structure of the business domain for your studio, which is the goal of this section.
+We'll see how to configure graphical representations (e.g. diagrams) specifically designed for this domain in the next one.
+====
 
-In this part of the tutorial, as a studio maker, we will create a new domain specific language (we call it _Studio_).
-Then as an end-user, we will manipulate this new language.
+In Sirius Web, one of the key features is the ability to define your own domain and the associated representations (e.g. diagrams) to view and edit it.
+Together, the domain and acompanying representations are called a _studio_.
+
+As a studio maker you create your studio definition entirely through the web browser, using the same UI as you used in the previous part of the tutorial.
+
+Once your studio has been defined, it can be used by other users, who can:
+
+. create concrete instances of the concepts described in the new domains;
+. visualize and manipulate these instances through the representations defined in the studio.
+
+In this part of the tutorial, as a studio maker, we will create a new studio, and then use is as an end-user.
 
 In Sirius Web, a _Domain_ is composed with _Entities_ and _Relations_ objects.
 An _Entity_ may have _Attributes_, _Entities_ and _Relations_.
 A _Relation_ is a connection between two _Entities_.
 An _Attribute_ is either a _Text_, _Boolean_ or a _Number_.
 
-NOTE: If you don't want to specify yourself a new domain, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step1.zip_ and then _\your_local_git_repository\Family-Instance-Step1.zip_
+[NOTE]
+====
+If you do not want to specify yourself a new domain, you can upload the files we prepared:
+
+. Go back to the main page with the projects list (you can click on the Sirius logo in the top-left).
+. Click on the "Upload project" card.
+. Click on the "Click here to select a file" link, then select the `Family-Studio-Step1.zip` from the tutorial sources and then click on "UPLOAD".
+. You will be redirected to a newly created _Family Studio_ project with the domain already defined.
+====
 
 First, from the home page, click on the _Blank Studio_ template.
 
@@ -205,8 +285,9 @@ From the _Details_ view, rename this object from _Domain_ to _tutorial_.
 
 image::images/studio_maker_domain_rename.png[Studio Maker - rename domain]
 
-Then, create a _Domain_ diagram on this _tutorial_ domain object. It will help us the easily create and modify our domain specific language.
-To create this diagram, just _tutorial_ object in the _Explorer_ view, and click on the menu icon associated (the three vertical dots), then click on the _New representation_ menu item.
+Then, create a _Domain_ diagram on this _tutorial_ domain object.
+It will help us the easily create and modify our domain specific language.
+To create this diagram, select the _tutorial_ object in the _Explorer_ view, and click on the menu icon associated (the three vertical dots), then click on the _New representation_ menu item.
 
 image::images/studio_maker_domain_create_domain_diagram_menu.png[Studio Maker - create domain diagram]
 
@@ -215,6 +296,7 @@ Select the representation type you want to create (_Domain_), set a name and cli
 image::images/studio_maker_domain_create_domain_diagram_dialog.png[Studio Maker - create domain diagram, 40%]
 
 The new representation is visible in the _Explorer_ view and automatically open in the representations area.
+It will be empty initially, as our new domain does not currently define any concept.
 
 image::images/studio_maker_domain_create_domain_diagram_result.png[Studio Maker - create domain diagram]
 
@@ -250,18 +332,33 @@ In the diagram, click on the _Family_ object and select the _Text_ attribute too
 
 image::images/studio_maker_domain_create_attribute_tool.png[Studio Maker - create attribute]
 
-Set its name to _name_. Do the same for _Person_.
+Set its name to _name_.
+Do the same for _Person_.
 You should now have a domain looking like this:
 
 image::images/studio_maker_family_domain_step1_final.png[Studio Maker - step 1 - final]
 
-Just one last thing! You can go back to the home page (through the Sirius icon on the top left corner) and then rename your project from _Blank Studio_ to _Family-Studio_. Click on the menu icon associated (the three horizontal dots) to _Blank Studio_, then click on the _Rename_ menu item.
+Just one last thing!
+You can go back to the home page (through the Sirius icon on the top left corner) and then rename your project from _Blank Studio_ to _Family-Studio_.
+Click on the menu icon associated (the three horizontal dots) to _Blank Studio_, then click on the _Rename_ menu item.
 
 image::images/studio_maker_rename_project.png[Studio Maker - rename project]
 
 === Test the studio
 
-To test our studio, we need to create a new project.
+To test our studio, we need to create a new project with _instances_ of the concepts we defined.
+
+[NOTE]
+====
+If you do not want to create the domain instance yourself, you can upload the files we prepared.
+. Go back to the main page with the projects list (you can click on the Sirius logo in the top-left).
+. Click on the "Upload project" card.
+. Click on the "Click here to select a file" link, then select the `Family-Instance-Step1.zip` from the tutorial sources and then click on "UPLOAD".
+. You will be redirected to a newly created _Family Instance_ project with the domain already defined.
+
+Note that this requires that the corresponding domain has been correctly defined as above.
+====
+
 From the home page, click on the _Blank project_ template.
 
 image::images/enduser_projects_create_blank_project.png[End-user - create new project]
@@ -278,6 +375,7 @@ From this new _Others..._ model, click on the menu icon associated (the three ve
 
 image::images/enduser_explorer_view_create_object_menu_family.png[End-user - new family, 40%]
 
+Make sure the _Domain_ selected is the one we defined above, `domain://tutorial`.
 Select the type of model object you want to create (here a _Family_) and click on the _CREATE_ button.
 
 image::images/enduser_explorer_view_create_object_dialog_family.png[End-user - new family, 40%]
@@ -297,7 +395,17 @@ image::images/enduser_family_instance_step1_final.png[End-user - step 1 - final,
 
 == COFFEE/TEA BREAK! (~10 min)
 
-== Experiment as a studio maker (second part) (~20 min)
+== Experiment as a studio maker: defining a diagram to visualize our new domain (~20 min)
+
+[NOTE]
+====
+We now have defined our custom domain, however simple (the basic structure of a Family).
+We can create and edit concrete _instances_ (the concrete _Adams_ family), but currently only through the _Explorer_ view (the instance's structure) and _Details_ (the properties of each specific element).
+
+The power of Sirius Web is that for each domain you (as a studio maker) can configure custom _representations_ (typically diagrams or forms, but it can be almost anything) adapted to the domain for end-users.
+
+In this section you will create a simple diagram representation for families.
+====
 
 Now we have a domain, we want to be able to manipulate it graphically.
 In the _Studio_, this part is called _View_.
@@ -306,23 +414,31 @@ A _Diagram Description_ contains a set of _Node Descriptions_ and _Edges Descrip
 A _Node Description_ contains the information needed to display an _Entity_ on a diagram.
 An _Edge Description_ contains the information needed to display a _Relation_ (or an _Entity_) on a diagram.
 
+[NOTE]
+====
+If you do not want to specify yourself a new view, please upload in Sirius Web the projects we already prepared (see the previous sections for how to upload a project from a zip).
 
-NOTE: If you don't want to specify yourself a new view, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step2.zip_ and then _\your_local_git_repository\Family-Instance-Step2.zip_
-Do not forget to delete existing projects from previous steps before.
+. Delete the existing _Family-Instance_ and _Family-Studio_ beforehand to avoid conflicts.
+. Upload the provided `Family-Studio-Step2.zip` file, which contains the studio definition with both the domain and simple diagram definition.
+. Upload the provided `Family-Instance-Step2.zip` file, which contains an example family and diagram.
+====
 
 First, create a _View_ model, in the _Create a new model_ section.
 
 image::images/studio_maker_new_view.png[Studio Maker - new view]
 
-It creates a new document named _View_ containing a view named _View_, and a diagram description named _New Diagram Description_.
+It creates a new document named _View_ containing a view named _View_, and a diagram description named _New Diagram Description_ and a _Color Palette_ with some predefined colors.
 
 image::images/studio_maker_new_view_2.png[Studio Maker - new view]
 
 From the _Details_ view, rename this object from _New Diagram Description_ to _Family Diagram Description_.
 Set the domain type (the type of object on which we want to create this type of diagram) to `tutorial::Family`.
-Set the _Title Expression_ to `aql:Family Representation`.
+Set the _Title Expression_ to `Family Representation`.
 
 image::images/studio_maker_view_diagram_description_set_properties.png[Studio Maker - diagram description - set properties]
+
+This is enough to be able to create diagrams on _Family_ instances, but they would be blank.
+Let's tell Sirius Web what kind of elements (nodes) to display on these diagrams.
 
 From the _Family Diagram Description_, create a new _Node Description_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
 
@@ -339,9 +455,9 @@ image::images/studio_maker_view_person_node_description.png[Studio Maker - node 
 After selecting the _Node Description_ in the _Explorer_ view, let's change its properties in the _Details_ view:
 
 * Set the name to _Person Node_
-* Set the domain type to `tutorial::Person`
-* Set the semantic candidates expression to `aql:self.members`
-* Set the label expression to `aql:self.name`
+* Set the domain type to `tutorial::Person`: each of these nodes will represent an instance of the _Person_ type.
+* Set the semantic candidates expression to `aql:self.members`: we want to get one node for each member of the family.
+* Set the label expression to `aql:self.name`: the node will display the name of the _Person_ it represents.
 
 NOTE: if you want more details about the meaning of all elements and properties of the _Studio_, please go to https://docs.obeostudio.com/
 
@@ -349,20 +465,7 @@ NOTE: if you want more details about AQL, the model query language, please go to
 
 image::images/studio_maker_view_person_node_description_set_properties.png[Studio Maker - node description - set properties, 20%]
 
-We now need a _Color Palette_ to associate some colors to our _Nodes_ and _Edges_.
-From the _View_ object, create a new _Color Palette_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
-
-image::images/studio_maker_view_create_color_palette_menu.png[Studio Maker - view - create color palette, 40%]
-
-Select the _Color Palette_ object type and click on the _CREATE_ button.
-
-image::images/studio_maker_view_create_color_palette_dialog.png[Studio Maker - view - create color palette, 40%]
-
-A new _Color Palette_ is visible in the _Explorer_ view.
-
-image::images/studio_maker_view_color_palette.png[Studio Maker - color palette]
-
-Inside this _Color Palette_, let's create 3 colors:
+Inside this _Color Palette_ (available int he _Explorer_ just below the _View_ element), let's create 3 custom colors:
 
 * _person_background color_ with value `#f7e6f0`
 * _person_border_color_ with value `#242055`
@@ -381,6 +484,10 @@ Let's use those colors for the _Person Node_ object.
 In the _Explorer_ view, click on the _RectangularNodeStyleDescription_ under the _Person Node_ object.
 Set its properties:
 
+IMPORTANT: Currently "click on the _RectangularNodeStyleDescription_" is difficult to explain as node styles have a label like "100" which is meaningless to users.
+It's not obvious at all that these nodes are the node's style.
+Hopefully we can get https://github.com/eclipse-sirius/sirius-web/pull/2205[PR #2205] to be merged before the conf and provide nicer/more meaningful labels for the View elements.
+
 * _Width Expression_ to `100`
 * _Width Expression_ to `70`
 * _Label Color_ to `person_label_color`
@@ -390,6 +497,7 @@ Set its properties:
 image::images/studio_maker_view_person_node_description_set_style_properties.png[Studio Maker - node description style - set properties]
 
 Finally, let's create a tool allowing to create a _Person_ inside the diagram.
+For this we need to setup the palette of tools that will be displayed when the user clicks on the diagram's background.
 
 From the _Family Diagram Description_ object, create a new _Palette_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
 
@@ -463,8 +571,8 @@ Now test this second part as an end-user!
 === Test the studio
 
 From the home page, click on the _Family-Instance_ project.
-  
-From the _Explorer_ view, select your _Family_ object and create a new _Family Diagram Description_ by clicking on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
+
+From the _Explorer_ view, select your _Family_ object and create a new _Family Diagram Description_ by clicking on the menu icon associated (the three vertical dots), then click on the _New representation_ menu item.
 
 image::images/enduser_family_create_representation_menu.png[End-user - create representation, 40%]
 
@@ -484,12 +592,18 @@ There you go! The new _Person_ is visible in the diagram and the _Explorer_ view
 
 image::images/enduser_family_instance_step2_final.png[End-user - diagram - person tool]
 
-== Experiment as a studio maker (third part) (~10 min)
+== Experiment as a studio maker: add relations and display them on the diagram (~10 min)
 
-In this third part of the experiment, we will add a new _Relation_ named _children_ to our _Family_ domain and also define it graphically in the associated _View_.
+In this third part of the experiment, we will add a new _Relation_ named _children_ to our _Family_ domain and also display it graphically in the associated _View_.
 
-NOTE: If you don't want to specify yourself this part, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step3.zip_ and then _\your_local_git_repository\Family-Instance-Step3.zip_.
-Do not forget to delete existing projects from previous steps before.
+[NOTE]
+====
+If you don't want to specify yourself this part, please upload in Sirius Web the projects we already prepared (see the previous sections for how to upload a project from a zip).
+
+. Delete the existing _Family-Instance_ and _Family-Studio_ beforehand to avoid conflicts.
+. Upload the provided `Family-Studio-Step3.zip` file, which contains the studio definition with both the domain and simple diagram definition.
+. Upload the provided `Family-Instance-Step3.zip` file, which contains an example family and diagram.
+====
 
 From the home page, click on the _Family-Studio_ project.
 In the _Family-Studio_ project, open the _Domain_ diagram.
@@ -511,7 +625,7 @@ image::images/studio_maker_domain_person_create_relation_children_set_properties
 Then, in the _View_ model, from the _Family Diagram Description_ object, create an _Edge Description_ and set its properties:
 
 * _Name_ to `Children Edge`
-* _Domain Type_ to empty value
+* _Domain Type_ to `tutorial::Person`
 * _Semantic Candidates Expression_ to empty value
 * _Precondition Expression_ to empty value
 * _Synchronization Policy_ to `SYNCHRONIZED`
@@ -519,22 +633,22 @@ Then, in the _View_ model, from the _Family Diagram Description_ object, create 
 * _Begin Label Expression_ to empty value
 * _End Label Expression_ to empty value
 * _Is Domain Based Edge_ to `false`
-* _Source Node Descriptions_ to `Node Description Person Node`
-* _Target Node Descriptions_ to `Node Description Person Node`
+* _Source Node Descriptions_ to `Person Node`
+* _Target Node Descriptions_ to `Person Node`
 * _Source Node Expression_ to `aql:self`
 * _Target Node Expression_ to `aql:self.children`
 
 image::images/studio_maker_view_create_edge_set_properties.png[Studio Maker - view edge - set properties]
 
 You can also set the color of the edge by clicking on the _EdgeStyle_ object inside the _Children Edge_ object.
-Then change the _Color_ properties in the _Details_ view to `FixedColor person_border_color`.
+Then change the _Color_ properties in the _Details_ view to `person_border_color`.
 
 image::images/studio_maker_view_edge_style_set_properties.png[Studio Maker - view edge style - set properties]
 
 === Test the studio
 
 From the home page, click on the _Family-Instance_ project.
-  
+
 From the _Explorer_ view, open your _Family Representation_ diagram.
 
 Then click on a _Person_ in the diagram.
@@ -546,18 +660,24 @@ You should see your diagram updated instantaneously with new edges:
 image::images/enduser_family_instance_step3_final.png[End-user - diagram - edges]
 
 == Experiment as a studio maker (fourth part) (~10 min)
-       
+
 In this fourth part of the experiment, we will create sub-types to _Person_ (_Woman_ and _Man_), and add a new _Conditional Styles_ to our _Person Node_ in the _View_.
 
-NOTE: If you don't want to specify yourself this part, please upload in Sirius Web the projects _\your_local_git_repository\Family-Studio-Step4.zip_ and then _\your_local_git_repository\Family-Instance-Step4.zip_.
-Do not forget to delete existing projects from previous steps before.
+[NOTE]
+====
+If you don't want to specify yourself this part, please upload in Sirius Web the projects we already prepared (see the previous sections for how to upload a project from a zip).
+
+. Delete the existing _Family-Instance_ and _Family-Studio_ beforehand to avoid conflicts.
+. Upload the provided `Family-Studio-Step4.zip` file, which contains the studio definition with both the domain and simple diagram definition.
+. Upload the provided `Family-Instance-Step4.zip` file, which contains an example family and diagram.
+====
 
 From the home page, click on the _Family-Studio_ project.
 In the _Family-Studio_ project, open the _Domain_ diagram.
 Then in the diagram, click on the diagram background, select the _Entity_ tool (the first one).
 Name this _Entity_: _Woman_ and do the same for _Man_.
 
-Select the _Woman_ _Entity_ and from the _Details_ view, select _Entity Person_ as _Super Types_.
+Select the _Woman_ _Entity_ and from the _Details_ view, select _Person_ as _Super Types_.
 Do the same for _Man_.
 Finally, make _Person_ abstract from the _Details_ view.
 
@@ -595,7 +715,7 @@ Select this new _Image Node Style Description_ and set its properties:
 * _Width Expression_ to `70`
 * _Height Expression_ to `70`
 * _Show Icon_ to `false`
-* _Label Color_ to `FixedColor person_label_color`
+* _Label Color_ to `person_label_color`
 * _Color_ to `None`
 * _Border Color_ to `None`
 * _Border Radius_ to `3`
@@ -677,13 +797,18 @@ image::images/enduser_family_instance_step5_final.png[End-user - step5 - final]
 
 == Experiment as studio developer (~25 min)
 
-To developer more advanced features for your studios, which can not (yet) be implementated directly through the web UI, you can also do a lot of things programmatically (templates, validation rules, representations descriptions, ...).
+To developer more advanced features for your studios, which can not (yet) be implementated directly through the web UI, you can also do a lot of things programmatically (Java services, project templates, custom validation rules, representations descriptions...).
 
 Let's implement some of them!
 
-=== Templates (~10 min)
+=== Java Services (~10 min)
 
-From the homepage of Sirius Web, you can see some template. In Sirius Web, a template is a project initializer and accelerator.
+TODO
+
+=== Project Templates (~10 min)
+
+From the homepage of Sirius Web, you can see some project template.
+In Sirius Web, a template is a project initializer and accelerator.
 
 image::images/studio_maker_templates.png[Studio Developer - templates]
 
@@ -931,6 +1056,9 @@ You can observe that the warning message is displayed on the _Validation_ view, 
 
 In this part, the Obeo team will demonstrate live the modification of the frontend of Sirius Web.
 
+- Show Papaya; it's also an example of a more complex (less "toy") studio fully defined with the same tools the attendees used.
+- Add the `PapayaOperationActivityLabelDetailToolContribution` (regsitration code in EditProjectview removed from the supplied version).
+
 == Packaging (~10 min)
 
 Lets' package our Sirius Web application as a single jar file.
@@ -973,5 +1101,4 @@ Useful links:
 * Sirius Web website: https://eclipse.dev/sirius/sirius-web.html
 * more details about the usage of Sirius Web or the usage the _Studio_: https://docs.obeostudio.com/
 * more details about AQL, the model query language: https://eclipse.dev/acceleo/documentation/
-* Sirius Web source code: https://github.com/eclipse-sirius/sirius-components
-
+* Sirius Web source code: https://github.com/eclipse-sirius/sirius-web
