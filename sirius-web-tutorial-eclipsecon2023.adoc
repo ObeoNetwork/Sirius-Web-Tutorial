@@ -1,6 +1,6 @@
 :source-highlighter: highlight.js
 
-= Sirius-web tutorial for EclipseCon 2023
+= Sirius Web tutorial for EclipseCon 2023
 
 [IMPORTANT]
 ====
