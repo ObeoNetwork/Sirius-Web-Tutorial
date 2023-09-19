@@ -33,7 +33,7 @@ public class FamilyProjectTemplatesProvider implements IProjectTemplateProvider 
         // @formatter:off
         var flowTemplate = ProjectTemplate.newProjectTemplate(FAMILY_TEMPLATE_ID)
                 .label("Family")
-                .imageURL("/images/Family-Template.png")
+                .imageURL("/images/Family-Template.svg")
                 .natures(List.of())
                 .build();
         // @formatter:on
