@@ -1,0 +1,27 @@
+= License
+
+== Icons and images
+
+- /sirius-web-family-application/src/main/resources/images/Family-Template.svg
+-- https://www.svgrepo.com/svg/98119/family-silhouette
+-- Creative Commons CC0 - https://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+- /sirius-web-family-application/src/main/resources/images/star-trek-1.svg
+-- https://www.svgrepo.com/svg/88017/star-trek
+-- Creative Commons CC0 - https://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+- /sirius-web-family-application/src/main/resources/images/star-trek-2.svg
+-- https://www.svgrepo.com/svg/325649/spock-hand-gesture
+-- MIT - https://opensource.org/license/mit/
+
+- /sirius-web-family-application/src/main/resources/images/star-wars-1.svg
+-- https://www.svgrepo.com/svg/512914/star-wars-134
+-- Creative Commons CC0 - https://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+- /sirius-web-family-application/src/main/resources/images/star-wars-2.svg
+-- https://www.svgrepo.com/svg/443073/brand-galactic-republic
+-- Creative Commons CC0 - https://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+- /sirius-web-family-application/src/main/resources/images/family.svg
+-- https://www.svgrepo.com/svg/98119/family-silhouette
+-- Creative Commons CC0 - https://creativecommons.org/publicdomain/zero/1.0/deed.en
