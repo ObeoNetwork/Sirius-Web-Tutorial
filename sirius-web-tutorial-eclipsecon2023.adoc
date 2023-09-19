@@ -663,9 +663,9 @@ You should see your diagram updated instantaneously with new edges:
 
 image::images/enduser_family_instance_step3_final.png[End-user - diagram - edges]
 
-== Experiment as a studio maker (fourth part) (~10 min)
+== Experiment as a studio maker: update existing domain & view (~10 min)
 
-In this fourth part of the experiment, we will create sub-types to _Person_ (_Woman_ and _Man_), and add a new _Conditional Styles_ to our _Person Node_ in the _View_.
+In this fourth part of the experiment, we will create sub-types to _Person_ (_StarWarsFan_ and _StarTrekFan_), and add a new _Conditional Styles_ to our _Person Node_ in the _View_.
 
 [NOTE]
 ====
@@ -679,15 +679,15 @@ If you don't want to specify yourself this part, please upload in Sirius Web the
 From the home page, click on the _Family-Studio_ project.
 In the _Family-Studio_ project, open the _Domain_ diagram.
 Then in the diagram, click on the diagram background, select the _Entity_ tool (the first one).
-Name this _Entity_: _Woman_ and do the same for _Man_.
+Name this _Entity_: _StarTrekFan_ and do the same for _StarWarsFan_.
 
-Select the _Woman_ _Entity_ and from the _Details_ view, select _Person_ as _Super Types_.
-Do the same for _Man_.
+Select the _StarTrekFan_ _Entity_ and from the _Details_ view, select _Person_ as _Super Types_.
+Do the same for _StarWarsFan_.
 Finally, make _Person_ abstract from the _Details_ view.
 
 Your domain should look like this:
 
-image::images/studio_maker_domain_man_woman.png[Studio Maker - domain - man & woman]
+image::images/studio_maker_domain_stars_people.png[Studio Maker - domain - star wars & star trek fans]
 
 Lets' add some _Conditional styles_ to our _View_.
 
@@ -701,7 +701,7 @@ image::images/studio_maker_view_person_node_conditional_style_dialog.png[Studio 
 
 Select this new _Conditional Node Style_ and set its properties:
 
-* _Condition_ to `aql:self.oclIsKindOf(tutorial::Woman)`
+* _Condition_ to `aql:self.oclIsKindOf(tutorial::StarTrekFan)`
 
 image::images/studio_maker_view_person_node_conditional_style_set_properties.png[Studio Maker - node - conditional style - set properties]
 
@@ -715,22 +715,19 @@ image::images/studio_maker_view_person_node_conditional_style_image_node_style_d
 
 Select this new _Image Node Style Description_ and set its properties:
 
-* _Shape_ to `woman`
+* _Shape_ to `star-trek-1` or `star-trek-2`
 * _Width Expression_ to `70`
 * _Height Expression_ to `70`
 * _Show Icon_ to `false`
 * _Label Color_ to `person_label_color`
-* _Color_ to `None`
-* _Border Color_ to `None`
 * _Border Radius_ to `3`
 * _Border Size_ to `0`
-* _Border Line Style_ to `None`
 
 image::images/studio_maker_view_person_node_conditional_style_image_node_style_set_properties.png[Studio Maker - node - conditional style - image node style - set properties]
 
-Now add a new _Conditional Node Style_ but this time for _Man_.
+Now add a new _Conditional Node Style_ but this time for _StarWarsFan_.
 
-Finally, update the _DiagramPalette_: add new creation tools for _Woman_ and _Man_.
+Finally, update the _DiagramPalette_: add new creation tools for _StarTrekFan_ and _StarWarsFan_.
 It is the same than the existing creation tool for _Person_ but with adapted values.
 After that, you can remove the _Person_ creation tool cause it is now useless.
 Indeed, _Person_ is now an abstract _Entity_ and cannot be instantiated anymore.
@@ -768,12 +765,12 @@ Name the _Family_ (from the _Details_ view or with the _Rename_ menu item).
 
 From the _Explorer_ view, create _Family Representation_ diagram from the _Family_ object.
 
-Click on the background of the diagram, and select the _Woman_ tool.
-Do the same for the _Man_ tool.
+Click on the background of the diagram, and select the _StarTrekFan_ tool.
+Do the same for the _StarWarsFan_ tool.
 
-image::images/enduser_explorer_view_create_man_woman.png[End-user - new man new woman]
+image::images/enduser_explorer_view_create_startrekfan.png[End-user - new star trek fan]
 
-Then click on a _Person_ (a _Woman_ or a _Man_) in the diagram.
+Then click on a _Person_ (a _StarTrekFan_ or a _StarWarsFan_) in the diagram.
 In the _Details_ view you should see a new property named _Children_.
 From this property, set the _Persons_ you want as children of the selected _Person_.
 
