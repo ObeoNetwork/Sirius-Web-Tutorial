@@ -755,7 +755,7 @@ image::images/enduser_new_others.png[End-user - new document]
 
 From this new _Others..._ model, click on the menu icon associated (the three vertical dots), then click on the _New object_ menu item.
 
-image::images/enduser_explorer_view_create_object_menu_family.png[End-user - new family, 40%]
+image::images/enduser_explorer_view_create_object_menu_family.png[End-user - new family, 30%]
 
 Select the type of model object you want to create (here a _Family_) and click on the _CREATE_ button.
 
@@ -796,7 +796,7 @@ Here is the result from the end-user side:
 
 image::images/enduser_family_instance_step5_final.png[End-user - step5 - final]
 
-== Experiment as studio developer (~25 min)
+== Experiment as studio developer (~35 min)
 
 To developer more advanced features for your studios, which can not (yet) be implemented directly through the web UI, you can also do a lot of things programmatically (Java services, project templates, custom validation rules, representations descriptions...).
 
@@ -917,7 +917,7 @@ public class FamilyProjectTemplatesProvider implements IProjectTemplateProvider 
     public List<ProjectTemplate> getProjectTemplates() {
         var flowTemplate = ProjectTemplate.newProjectTemplate(FAMILY_TEMPLATE_ID)
                 .label("Family")
-                .imageURL("/images/Family-Template.png")
+                .imageURL("/images/Family-Template.svg")
                 .natures(List.of())
                 .build();
         return List.of(flowTemplate);
@@ -1029,7 +1029,7 @@ In Sirius Web its is possible to add validation rules for EMF Ecore metamodels.
 
 Once a project open, the _Validation_ view (on the left of the application) shows the rules that are not valid.
 
-image::images/enduser_validation_view.png[End-user - validation view]
+image::images/enduser_validation_view.png[End-user - validation view, 40%]
 
 Let's try to add a validation rule for the Flow metamodel.
 
