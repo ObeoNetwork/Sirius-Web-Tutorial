@@ -22,7 +22,7 @@ By the end of this tutorial, you should be able to create your own Sirius Web-ba
 
 The structure of the tutorial is as follows:
 
-. if you have not done so already beforehand, you will need to install the required devevelopment tools and the sample application we prepared.
+. if you have not done so already beforehand, you will need to install the required development tools and the sample application we prepared.
 . after a short general presentation of Sirius Web, you will launch the sample application in your machine, and experiment as an _end-user_ the example studio it provides.
 . then you will switch to the _studio maker_ role, and learn how to use Sirius Web to define your own studio directly from your browser.
 This is the main part of the tutorial we will spend the most time.
@@ -45,12 +45,16 @@ In this section you will:
 . Get this initial version running locally.
 ====
 
-Go to link:https://github.com/ObeoNetwork[Obeo Network (TODO INSERT THE DEFINITIVE GITHUB REPO LINK HERE)] and clone the repository.
+Go to link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial[Obeo Network] and clone the repository.
 
-If you don't have Git installed on your machine, just download the link:https://github.com/ObeoNetwork[zip (TODO INSERT THE DEFINITIVE ZIP LINK HERE)].
+If you don't have Git installed on your machine, just download the link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial/archive/refs/heads/main.zip[zip].
 
-Once unzipped or cloned, link:https://github.com/ObeoNetwork[download (TODO INSERT THE DEFINITIVE LINK HERE)] the Spring Tools 4 for Eclipse specially designed for this tutorial.
-Choose the bundle according to your OS.
+Once unzipped or cloned, download the _Spring Tools 4 for Eclipse_ specially designed for this tutorial.
+Choose the bundle according to your OS:
+
+* Windows: link:https://github.com/ObeoNetwork[download (TODO INSERT THE DEFINITIVE WINDOWS LINK HERE)]
+* Linux: link:https://github.com/ObeoNetwork[download (TODO INSERT THE DEFINITIVE LINUX LINK HERE)]
+* macOS: link:https://github.com/ObeoNetwork[download (TODO INSERT THE DEFINITIVE MACOS LINK HERE)]
 
 It contains an embedded Java Runtime Environment, Maven and all the maven dependencies you will need for this tutorial.
 
@@ -175,7 +179,7 @@ The _Details_ view shows all properties of the selected object.
 It is updated from the selection in the _Explorer_ view or the active representation (diagram, form, ...).
 
 From there, you can edit each property of the selected object.
-Changes are applied immediatly.
+Changes are applied immediately.
 
 === Representations area
 
@@ -248,7 +252,7 @@ We'll see how to configure graphical representations (e.g. diagrams) specificall
 ====
 
 In Sirius Web, one of the key features is the ability to define your own domain and the associated representations (e.g. diagrams) to view and edit it.
-Together, the domain and acompanying representations are called a _studio_.
+Together, the domain and accompanying representations are called a _studio_.
 
 As a studio maker you create your studio definition entirely through the web browser, using the same UI as you used in the previous part of the tutorial.
 
@@ -797,7 +801,7 @@ image::images/enduser_family_instance_step5_final.png[End-user - step5 - final]
 
 == Experiment as studio developer (~25 min)
 
-To developer more advanced features for your studios, which can not (yet) be implementated directly through the web UI, you can also do a lot of things programmatically (Java services, project templates, custom validation rules, representations descriptions...).
+To developer more advanced features for your studios, which can not (yet) be implemented directly through the web UI, you can also do a lot of things programmatically (Java services, project templates, custom validation rules, representations descriptions...).
 
 Let's implement some of them!
 
@@ -1135,7 +1139,7 @@ You can observe that the warning message is displayed on the _Validation_ view, 
 In this part, the Obeo team will demonstrate live the modification of the frontend of Sirius Web.
 
 - Show Papaya; it's also an example of a more complex (less "toy") studio fully defined with the same tools the attendees used.
-- Add the `PapayaOperationActivityLabelDetailToolContribution` (regsitration code in EditProjectview removed from the supplied version).
+- Add the `PapayaOperationActivityLabelDetailToolContribution` (registration code in EditProjectView removed from the supplied version).
 
 == Packaging (~10 min)
 
