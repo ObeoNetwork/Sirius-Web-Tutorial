@@ -79,7 +79,7 @@ TODO Add image
 
 The last step is to create an _Eclipse launch configuration_ to run our Sirius Web application.
 Go to _Run > Run Configurations..._ menu and then double-click on _Spring Boot App_.
-Set the name, project, main type and profile as below:
+Set the name, project, and main type as below:
 
 image::images/installation_run_config.png[Run configuration, 80%]
 

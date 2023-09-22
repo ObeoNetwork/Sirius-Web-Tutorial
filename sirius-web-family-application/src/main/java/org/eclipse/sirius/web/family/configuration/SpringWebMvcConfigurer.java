@@ -12,14 +12,10 @@
  *******************************************************************************/
 package org.eclipse.sirius.web.family.configuration;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 import org.eclipse.sirius.web.spring.configuration.SiriusWebPathResourceResolver;
 import org.eclipse.sirius.web.spring.configuration.SpringWebMvcConfigurerConstants;
 import org.eclipse.sirius.web.spring.controllers.URLConstants;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -34,19 +30,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class SpringWebMvcConfigurer implements WebMvcConfigurer {
     private static final String[] ALLOWED_ORIGIN_PATTERNS = { "*" };
 
-    /**
-     * The Spring environment.
-     */
-    private Environment environment;
-
-    public SpringWebMvcConfigurer(Environment environment) {
-        this.environment = environment;
-    }
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // @formatter:off
-
         // Make sure that all static assets are redirected properly to the proper path
         registry.addResourceHandler(
             SpringWebMvcConfigurerConstants.CSS_PATTERN,
@@ -68,8 +53,6 @@ public class SpringWebMvcConfigurer implements WebMvcConfigurer {
         ).addResourceLocations(SpringWebMvcConfigurerConstants.INDEX_HTML_PATH)
         .resourceChain(true)
         .addResolver(new SiriusWebPathResourceResolver(URLConstants.API_BASE_PATH));
-
-        // @formatter:on
     }
 
     @Override
@@ -78,9 +61,6 @@ public class SpringWebMvcConfigurer implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        boolean inDevMode = Arrays.asList(this.environment.getActiveProfiles()).stream().anyMatch(profile -> Objects.equals(profile, "dev") || Objects.equals(profile, "test-h2"));
-        if (inDevMode) {
-            registry.addMapping(URLConstants.API_BASE_PATH + SpringWebMvcConfigurerConstants.ANY_PATTERN).allowedOriginPatterns(ALLOWED_ORIGIN_PATTERNS).allowCredentials(true);
-        }
+        registry.addMapping(URLConstants.API_BASE_PATH + SpringWebMvcConfigurerConstants.ANY_PATTERN).allowedOriginPatterns(ALLOWED_ORIGIN_PATTERNS).allowCredentials(true);
     }
 }
