@@ -51,9 +51,9 @@ Helpers:: make sure everybody follows along and nobody gets stuck.
 First, download the _Spring Tools 4 for Eclipse_ specially designed for this tutorial.
 Choose the bundle according to your OS:
 
-* Windows x86_64: link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.0/sirius-web-tutorial-pack-win-1.0.0.zip[download Windows bundle on Obeo Network]
-* Linux x86_64: link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.0/sirius-web-tutorial-pack-linux-1.0.0.zip[download Linux bundle on Obeo Network]
-* macOS x86_64/arm_64: link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.0/sirius-web-tutorial-pack-mac-1.0.0.zip[download macOS bundle on Obeo Network]
+* Windows x86_64: link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.1/sirius-web-tutorial-pack-win-1.0.0.zip[download Windows bundle on Obeo Network]
+* Linux x86_64: link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.1/sirius-web-tutorial-pack-linux-1.0.0.zip[download Linux bundle on Obeo Network]
+* macOS x86_64/arm_64: link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.1/sirius-web-tutorial-pack-mac-1.0.0.zip[download macOS bundle on Obeo Network]
 
 It contains an embedded Java Runtime Environment, Maven and all the maven dependencies you will need for this tutorial.
 
