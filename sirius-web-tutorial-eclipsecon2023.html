@@ -574,13 +574,13 @@ Choose the bundle according to your OS:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Windows x86_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.1/sirius-web-tutorial-pack-win-1.0.0.zip">download Windows bundle on Obeo Network</a></p>
+<p>Windows x86_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/download/v1.0.1/sirius-web-tutorial-pack-win-1.0.1.zip">download Windows bundle on Obeo Network</a></p>
 </li>
 <li>
-<p>Linux x86_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.1/sirius-web-tutorial-pack-linux-1.0.0.zip">download Linux bundle on Obeo Network</a></p>
+<p>Linux x86_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/download/v1.0.1/sirius-web-tutorial-pack-linux-1.0.1.zip">download Linux bundle on Obeo Network</a></p>
 </li>
 <li>
-<p>macOS x86_64/arm_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/donwload/v1.0.1/sirius-web-tutorial-pack-mac-1.0.0.zip">download macOS bundle on Obeo Network</a></p>
+<p>macOS x86_64/arm_64: <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial/releases/download/v1.0.1/sirius-web-tutorial-pack-mac-1.0.1.zip">download macOS bundle on Obeo Network</a></p>
 </li>
 </ul>
 </div>
@@ -595,6 +595,17 @@ Choose the bundle according to your OS:</p>
 <li>
 <p>Windows: run script <code>run.ps1</code> (run with PowerShell)</p>
 </li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Before executing the <code>.ps1</code> script, please execute your PowerShell with administrator rights and run the following command: <code>Set-ExecutionPolicy Unrestricted</code>.</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Linux: run script <code>run.sh</code> (run with your favorite terminal)</p>
 </li>
@@ -607,7 +618,7 @@ Choose the bundle according to your OS:</p>
 <p>The <code>run</code> shell script allows to configure the <em>Spring Tools 4 for Eclipse</em> to the maven local repository contained in the bundle and then launch it.</p>
 </div>
 <div class="paragraph">
-<p>Once launched, you need to clone or add the git repository (<a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial">Sirius-Web-Tutorial</a>) of the tutorial.</p>
+<p>Once launched, you need to clone (<a href="#clonerepo">Clone repository</a>) or add (<a href="#addrepo">Add existing repository</a>) the git repository (<a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial">Sirius-Web-Tutorial</a>) of the tutorial.</p>
 </div>
 <div class="paragraph">
 <p>The repository contains:</p>
@@ -626,7 +637,7 @@ Choose the bundle according to your OS:</p>
 </ol>
 </div>
 <div class="sect2">
-<h3 id="_clone_repository">Clone repository</h3>
+<h3 id="clonerepo">Clone repository</h3>
 <div class="paragraph">
 <p>If you don&#8217;t have already cloned the <a href="https://github.com/ObeoNetwork/Sirius-Web-Tutorial">Sirius-Web-Tutorial</a> git repository on your machine before, you just have to clone it from your Eclipse environment (If you already have, please go to <a href="#addrepo">Add existing repository</a> section).</p>
 </div>
@@ -772,6 +783,20 @@ Click on <em>OK</em>.</p>
 </div>
 <div class="paragraph">
 <p>Then retry to launch your <em>Eclipse launch configuration</em>.</p>
+</div>
+<div class="sect3">
+<h4 id="_windows_users">Windows users</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>You may encounter issues (e.g. very long time to unzip, path too long error) while unzipping the bundle.
+Please do not use native zip software (prefer 7-zip or other).</p>
+</li>
+<li>
+<p>Before executing the <code>.ps1</code> script, please execute your PowerShell with administrator rights and run the following command: <code>Set-ExecutionPolicy Unrestricted</code>.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -2849,7 +2874,7 @@ We hope it will make you want to go further with it.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-10-09 16:55:02 +0200
+Last updated 2023-10-10 17:22:41 +0200
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

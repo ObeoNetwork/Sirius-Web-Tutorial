@@ -60,12 +60,17 @@ It contains an embedded Java Runtime Environment, Maven and all the maven depend
 Once unzipped, just launch it:
 
 * Windows: run script `run.ps1` (run with PowerShell)
+[IMPORTANT]
+====
+Before executing the `.ps1` script, please execute your PowerShell with administrator rights and run the following command: `Set-ExecutionPolicy Unrestricted`.
+====
 * Linux: run script `run.sh` (run with your favorite terminal)
 * macOS: run script `run.ksh` (run with your favorite terminal)
 
+
 The `run` shell script allows to configure the _Spring Tools 4 for Eclipse_ to the maven local repository contained in the bundle and then launch it.
 
-Once launched, you need to clone or add the git repository (link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial[Sirius-Web-Tutorial]) of the tutorial.
+Once launched, you need to clone (<<#clonerepo>>) or add (<<#addrepo>>) the git repository (link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial[Sirius-Web-Tutorial]) of the tutorial.
 
 The repository contains:
 
@@ -73,6 +78,7 @@ The repository contains:
 . the complete script of the tutorial itself;
 . snapshots of the expected result at the end of each section in case you get stuck.
 
+[#clonerepo]
 === Clone repository
 
 If you don't have already cloned the link:https://github.com/ObeoNetwork/Sirius-Web-Tutorial[Sirius-Web-Tutorial] git repository on your machine before, you just have to clone it from your Eclipse environment (If you already have, please go to <<#addrepo>> section).
@@ -161,6 +167,12 @@ image::images/installation_maven_update_2.png[Maven Update, 60%]
 
 Then retry to launch your _Eclipse launch configuration_.
 
+==== Windows users
+
+* You may encounter issues (e.g. very long time to unzip, path too long error) while unzipping the bundle.
+Please do not use native zip software (prefer 7-zip or other).
+
+* Before executing the `.ps1` script, please execute your PowerShell with administrator rights and run the following command: `Set-ExecutionPolicy Unrestricted`.
 
 [#sirius-presentation]
 == Presentation performed by the Obeo team (~5 min)
