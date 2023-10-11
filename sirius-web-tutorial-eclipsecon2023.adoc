@@ -928,6 +928,8 @@ So far in the studio definition we have used AQL expressions to navigate inside 
 Sometimes you need to perform more complex computations that what can be (easily) expressed in AQL.
 Fortunately, Sirius Web makes it pretty easy to call into custom Java code directly from AQL using what's called _Java Services_.
 
+You can checkout the branch `FAMILY_SERVICES` from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
+
 The actual Java services:
 
 [source,java]
@@ -1022,7 +1024,7 @@ In Sirius Web, a template is a project initializer and accelerator.
 
 image::images/studio_maker_templates.png[Studio Developer - templates]
 
-Please checkout the tag `FAMILY_TEMPLATE` from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
+Please checkout the branch `FAMILY_TEMPLATE` from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
 
 There are two interfaces to implement to provide a new template in Sirius Web:
 
@@ -1154,7 +1156,7 @@ image::images/studio_maker_template_family.png[Studio Developer - template - fam
 
 === Validation rules (~10 min)
 
-Please checkout the tag `FLOW_VALIDATION_RULES` from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
+Please checkout the branch `FLOW_VALIDATION_RULES` from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
 
 In Sirius Web its is possible to add validation rules for EMF Ecore metamodels.
 
@@ -1299,7 +1301,7 @@ In this part, the Obeo team will demonstrate live the usage of link:https://gith
 
 This API allows to easily create Diagram and Forms Description from View, but programmatically.
 
-Please checkout `VIEW-BUILDER-API` tag from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
+Please checkout `VIEW-BUILDER-API` branch from your Sirius Web local git repository to retrieve the result of the demonstration done by Obeo and test it by yourself.
 
 == Conclusion (~5 min)
 
