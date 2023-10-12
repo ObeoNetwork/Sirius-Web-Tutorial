@@ -201,7 +201,8 @@ In this section you will use the studio already configured in the application to
 [IMPORTANT]
 ====
 Speaker:: show the expected result, give rough idea of the main steps, explain major new concepts as needed.
-Attendees:: reproduce the expected result. You have the detailed instructions if needed, but are encouraged to try by yourselves and to improvise/explore.
+Attendees:: reproduce the expected result. You have the detailed instructions if needed, but are encouraged to try by yourselves and to improvise/explore. Remember to run your backend spring application and then go to _http://localhost:8080_ on your favorite web browser to start the tutorial.
+
 Helpers:: make sure everybody follows along and nobody gets stuck.
 ====
 
@@ -332,9 +333,11 @@ Exercise: Create a separate project, and try to reproduce the following diagram 
 image::images/enduser_bonus_exercise.png[Bonus Exercise]
 
 Hints:
-- on this screenshot, the _Back_Camera_ element is an instance of the _DataSource_ type;
-- it gets its special icon representing a camera because it's name contains the string "camera";
-- see if you can find out how to create edges by yourself.
+
+* on this screenshot, the _Back_Camera_ element is an instance of the _DataSource_ type;
+* it gets its special icon representing a camera because it's name contains the string "camera";
+* see if you can find out how to create edges by yourself.
+* to go back to the homepage, click on the _Sirius_ icon located in the top left.
 
 === Collaborative edition performed by the Obeo team
 
@@ -377,7 +380,7 @@ An _Attribute_ is either a _Text_, _Boolean_ or a _Number_.
 
 In this section, your goal is to create a very simple _Family_ domain with the following structure:
 
-image::images/studio_maker_family_domain_step1_final.png
+image::images/studio_maker_family_domain_step1_final.png[Studio Maker - step 1 final]
 
 To Sirius, a domain is a model (almost) like any other, so you will be using the same mechanisms as above when creating the Flow example.
 
@@ -400,13 +403,13 @@ Then, create a _Domain_ model, in the _Create a new model_ section.
 image::images/studio_maker_new_domain.png[Studio Maker - new domain]
 
 It creates a new document named _Domain_ containing an object named _Domain_.
-It will initialy have a randomly chosen name.
+It will initially have a randomly chosen name.
 Using the _Details_ view, rename this object from _Domain_ to _tutorial_.
 
 image::images/studio_maker_domain_rename.png[Studio Maker - rename domain]
 
 Then, create a _Domain_ diagram on this _tutorial_ domain object.
-While not strictly necessay, it will make it easier to create and modify our domain specific language than using just the _Explorer_ and _Details_ views.
+While not strictly necessary, it will make it easier to create and modify our domain specific language than using just the _Explorer_ and _Details_ views.
 To create this diagram, select the _tutorial_ object in the _Explorer_ view, and click on the menu icon associated (the three vertical dots), then click on the _New representation_ menu item.
 
 image::images/studio_maker_domain_create_domain_diagram_menu.png[Studio Maker - create domain diagram]
@@ -589,7 +592,7 @@ image::images/studio_maker_view_person_node_description_set_properties.png[Studi
 
 Inside this _Color Palette_ (available int he _Explorer_ just below the _View_ element), let's create 3 custom colors:
 
-* _person_background color_ with value `#f7e6f0`
+* _person_background_color_ with value `#f7e6f0`
 * _person_border_color_ with value `#242055`
 * _person_label_color_ with value `#242055`
 
@@ -1275,9 +1278,10 @@ Lets' package our Sirius Web application as a single jar file.
 
 The first and only step is to create an _Eclipse launch configuration_ to build and package our Sirius Web application.
 Go to _Run > Run Configurations..._ menu and then double-click on _Maven Build_.
-Set the base directory, gaols, user settings and parameters as below:
 
-image::images/studio_maker_maven_run_configuration.png[Studio Developer - Maven run configuration, 80%]
+Set the base directory (_${workspace_loc:/sirius-web-family-application}_), goals (_package_), user settings (_/PATH_TO_YOUR_sirius-web-tutorial-pack-XXX-x.y.z/resources/settings.xml_) and parameters (_skip tests enabled_) as below:
+
+image::images/studio_maker_maven_run_configuration.png[Studio Developer - Maven run configuration]
 
 Click on _Run_.
 Your Sirius Web application is packaged!

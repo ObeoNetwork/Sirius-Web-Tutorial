@@ -873,7 +873,7 @@ Please do not use native zip software (prefer 7-zip or other).</p>
 </dd>
 <dt class="hdlist1">Attendees</dt>
 <dd>
-<p>reproduce the expected result. You have the detailed instructions if needed, but are encouraged to try by yourselves and to improvise/explore.</p>
+<p>reproduce the expected result. You have the detailed instructions if needed, but are encouraged to try by yourselves and to improvise/explore. Remember to run your backend spring application and then go to <em><a href="http://localhost:8080" class="bare">http://localhost:8080</a></em> on your favorite web browser to start the tutorial.</p>
 </dd>
 <dt class="hdlist1">Helpers</dt>
 <dd>
@@ -1115,10 +1115,23 @@ Then you just have to click on the <em>Edit</em> tool (the pen icon).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Hints:
-- on this screenshot, the <em>Back_Camera</em> element is an instance of the <em>DataSource</em> type;
-- it gets its special icon representing a camera because it&#8217;s name contains the string "camera";
-- see if you can find out how to create edges by yourself.</p>
+<p>Hints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>on this screenshot, the <em>Back_Camera</em> element is an instance of the <em>DataSource</em> type;</p>
+</li>
+<li>
+<p>it gets its special icon representing a camera because it&#8217;s name contains the string "camera";</p>
+</li>
+<li>
+<p>see if you can find out how to create edges by yourself.</p>
+</li>
+<li>
+<p>to go back to the homepage, click on the <em>Sirius</em> icon located in the top left.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1212,8 +1225,10 @@ An <em>Attribute</em> is either a <em>Text</em>, <em>Boolean</em> or a <em>Numbe
 <div class="paragraph">
 <p>In this section, your goal is to create a very simple <em>Family</em> domain with the following structure:</p>
 </div>
-<div class="paragraph">
-<p>image::images/studio_maker_family_domain_step1_final.png</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/studio_maker_family_domain_step1_final.png" alt="Studio Maker - step 1 final">
+</div>
 </div>
 <div class="paragraph">
 <p>To Sirius, a domain is a model (almost) like any other, so you will be using the same mechanisms as above when creating the Flow example.</p>
@@ -1273,7 +1288,7 @@ Make sure to create a <em>Blank Studio</em> and not a plain <em>Blank Project</e
 </div>
 <div class="paragraph">
 <p>It creates a new document named <em>Domain</em> containing an object named <em>Domain</em>.
-It will initialy have a randomly chosen name.
+It will initially have a randomly chosen name.
 Using the <em>Details</em> view, rename this object from <em>Domain</em> to <em>tutorial</em>.</p>
 </div>
 <div class="imageblock">
@@ -1283,7 +1298,7 @@ Using the <em>Details</em> view, rename this object from <em>Domain</em> to <em>
 </div>
 <div class="paragraph">
 <p>Then, create a <em>Domain</em> diagram on this <em>tutorial</em> domain object.
-While not strictly necessay, it will make it easier to create and modify our domain specific language than using just the <em>Explorer</em> and <em>Details</em> views.
+While not strictly necessary, it will make it easier to create and modify our domain specific language than using just the <em>Explorer</em> and <em>Details</em> views.
 To create this diagram, select the <em>tutorial</em> object in the <em>Explorer</em> view, and click on the menu icon associated (the three vertical dots), then click on the <em>New representation</em> menu item.</p>
 </div>
 <div class="imageblock">
@@ -1666,7 +1681,7 @@ if you want more details about AQL, the model query language, please go to <a hr
 <div class="ulist">
 <ul>
 <li>
-<p><em>person_background color</em> with value <code>#f7e6f0</code></p>
+<p><em>person_background_color</em> with value <code>#f7e6f0</code></p>
 </li>
 <li>
 <p><em>person_border_color</em> with value <code>#242055</code></p>
@@ -2802,12 +2817,14 @@ public class FlowValidator implements EValidator {
 </div>
 <div class="paragraph">
 <p>The first and only step is to create an <em>Eclipse launch configuration</em> to build and package our Sirius Web application.
-Go to <em>Run &gt; Run Configurations&#8230;&#8203;</em> menu and then double-click on <em>Maven Build</em>.
-Set the base directory, gaols, user settings and parameters as below:</p>
+Go to <em>Run &gt; Run Configurations&#8230;&#8203;</em> menu and then double-click on <em>Maven Build</em>.</p>
+</div>
+<div class="paragraph">
+<p>Set the base directory (<em>${workspace_loc:/sirius-web-family-application}</em>), goals (<em>package</em>), user settings (<em>/PATH_TO_YOUR_sirius-web-tutorial-pack-XXX-x.y.z/resources/settings.xml</em>) and parameters (<em>skip tests enabled</em>) as below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/studio_maker_maven_run_configuration.png" alt="Studio Developer - Maven run configuration" width="80%">
+<img src="images/studio_maker_maven_run_configuration.png" alt="Studio Developer - Maven run configuration">
 </div>
 </div>
 <div class="paragraph">
@@ -2875,7 +2892,7 @@ We hope it will make you want to go further with it.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-10-12 10:31:26 +0200
+Last updated 2023-10-12 14:52:24 +0200
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
