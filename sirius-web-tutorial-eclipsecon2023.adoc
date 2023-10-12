@@ -941,13 +941,11 @@ public class FamilyServices {
 
     // aql:self.name + ' ' + self.eContainer().name
     public String fullName(EObject person) {
-        if (this.isInstance(person, "tutorial", "Person")) {
-            EObject parent = person.eContainer();
-            if (this.isInstance(parent, "tutorial", "Family")) {
-                String familyName = (String) this.getAttribute(parent, "name");
-                String ownName = (String) this.getAttribute(person, "name");
-                return ownName + " " + familyName;
-            }
+        EObject parent = person.eContainer();
+        if (this.isInstance(parent, "tutorial", "Family")) {
+            String familyName = (String) this.getAttribute(parent, "name");
+            String ownName = (String) this.getAttribute(person, "name");
+            return ownName + " " + familyName;
         }
         return "";
     }
